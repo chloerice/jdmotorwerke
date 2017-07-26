@@ -1,5 +1,5 @@
 {
-  "name": "YOUR_APP_NAME_HERE",
+  "name": "jdmotorwerke",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "YOUR_REPO_URL_HERE"
+    "url": "https://github.com/chloerice/jdmotorwerke.git"
   },
   "keywords": [
     "react",
@@ -35,6 +35,6 @@
     "firebase",
     "boilerplate"
   ],
-  "author": "YOUR_NAME_HERE",
+  "author": "Chloe Rice",
   "boilerplate-repos": "github.com/facebookincubator/create-react-app && github.com/chloerice/react-redux-router-firebase"
 }
