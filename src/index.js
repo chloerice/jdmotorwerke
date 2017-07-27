@@ -1,27 +1,35 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import Container from './components/app/App'
-import Home from './components/home/Home'
-import About from './components/about/About'
 import './index.css'
 import store from './store'
+import { auth } from '../firebase'
+import { logIn } from './reducers/actions/auth'
+import { requestingCars, requestingCustomers } from './reducers/actions/dashboard'
+
+let authListener, carsListener, customersListener
+// listen for auth changes and turn on and off database listeners
+auth().onAuthStateChanged(user => {
+  if (user) {
+    authListener = store.dispatch(logIn(user))
+    carsListener = store.dispatch(requestingCars())
+    customersListener = store.dispatch(requestingCustomers())
+  } else {
+    authListener && authListener()
+    carsListener && carsListener()
+    customersListener && customersListener()
+  }
+})
 
 const App = () => (
   <Provider store={store}>
     <Router>
-      <Container>
-        <Switch>
-          <Route exact strict path='/' component={Home} />
-          <Route exact path='/about' component={About} />
-        </Switch>
-      </Container>
+      <Container />
     </Router>
   </Provider>
 )
-
-export default App
 
 render(<App />, document.getElementById('root'))

@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux'
-// just import your reducers as you want your state keys named and
-// add them to the combineReducers arguments
 import loading from './loadingReducer'
+import auth from './authReducer'
+import customers from './customersReducer'
+import cars from './carsReducer'
+import error from './errorReducer'
 
 const rootReducer = combineReducers({
-  loading
+  loading,
+  customers,
+  cars,
+  auth,
+  error
 })
 
 export default rootReducer

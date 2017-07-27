@@ -1,5 +1,12 @@
 .Home {
   text-align: center;
+  background: url(./hero-home.jpeg) no-repeat center center scroll;
+  background-size: cover;
+  background-position: absolute;
+  vertical-align: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .Home-header {
