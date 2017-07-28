@@ -81,6 +81,12 @@ class Dashboard extends Component {
                 </LinkContainer>
               ))
             }
+            <NavItem
+              className='Dashboard__nav-item'
+              onClick={this.props.logOut}
+            >
+              <Glyphicon glyph='log-out' /> Log out
+            </NavItem>
           </Nav>
           <Grid fluid>
             <Row className='Dashboard'>
