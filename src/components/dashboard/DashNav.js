@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Navbar, NavbarBrand, Glyphicon, Image, Col } from 'react-bootstrap'
 import '../app/App.css'
-import brandBlack from './jdmotorwerke-logo.svg'
+import brandBlack from './jdmotorwerke-logo.png'
 
 const DashNav = props => (
   <Navbar fixedTop collapseOnSelect className='navbar-dash'>
