@@ -81,15 +81,6 @@ a {
   transition-duration: 0.2s;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-  background: rgba(255, 255, 255, 0.7);
-  height: 3px;
-}
-
-.navbar-default .navbar-toggle--dash .icon-bar {
-  background: #000000;
-}
-
 .navbar-default {
   z-index: 5;
   background: transparent;
@@ -149,6 +140,19 @@ a {
   .navbar-dash .navbar-brand {
     left: 25px;
   }
+}
+
+.Home-menuToggle span {
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 9px 10px;
+  margin: 15px 5px 16px 0;
+}
+
+.Home-menuToggle {
+  width: auto;
+  float: right;
+  padding: 0;
 }
 
 .Dashboard-menuToggle span {

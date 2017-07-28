@@ -25,7 +25,7 @@ class MainNav extends Component {
           </NavbarBrand>
           <Col
             onClick={this.props.toggleMainMenu}
-            className='Dashboard-menuToggle'
+            className='Home-menuToggle'
             xs={2} smHidden mdHidden lgHidden
           >
             <Glyphicon glyph='align-justify' />
