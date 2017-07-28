@@ -1,6 +1,11 @@
 @import './fonts.css';
 
 /* ------ Misc (App-wide) ------ */
+
+.container-fluid {
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none !important;
 }

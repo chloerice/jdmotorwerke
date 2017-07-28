@@ -1,0 +1,23 @@
+.container__flex--login {
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.7);
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Login__form {
+  width: 100%;
+  max-width: 400px;
+  padding: 50px 15px;
+}
+
+.Login__header {
+  margin: 40px 0;
+}
+
+.Login__button {
+  width: 100%;
+}

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Grid, Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
 import { loggingIn } from '../../reducers/actions/auth'
-import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
+import '../app/App.css'
+import './Login.css'
 
 class LoginForm extends Component {
   constructor (props) {
@@ -44,35 +45,32 @@ class LoginForm extends Component {
     }
 
     return (
-      <Grid fluid>
-        <Row className='LoginForm'>
-          <ScrollToTopOnMount />
-          <Col xs={12} sm={6} md={6} lg={6}>
-            <h1 className='LoginForm-header'>Log In</h1>
-            <form className='LoginForm-body' onSubmit={this.handleSubmit}>
-              <FormGroup controlId='email'>
-                <ControlLabel>Email</ControlLabel>
-                <FormControl
-                  type='email'
-                  value={this.state.email}
-                  onChange={this.handleChange('email')}
-                />
-              </FormGroup>
-              <FormGroup controlId='password'>
-                <ControlLabel>Password</ControlLabel>
-                <FormControl
-                  type='password'
-                  value={this.state.password}
-                  onChange={this.handleChange('password')}
-                />
-              </FormGroup>
-              <Button disabled={this.isInvalid()} className='primary' type='submit'>
-                Log In
-              </Button>
-            </form>
-          </Col>
-        </Row>
-      </Grid>
+      <div className='Login container__flex--login gradient'>
+        <form className='Login__form' onSubmit={this.handleSubmit}>
+          <h1 className='Login__header'>ENTER DASHBOARD</h1>
+          <FormGroup controlId='email'>
+            <ControlLabel>EMAIL</ControlLabel>
+            <FormControl
+              required
+              type='email'
+              value={this.state.email}
+              onChange={this.handleChange('email')}
+            />
+          </FormGroup>
+          <FormGroup controlId='password'>
+            <ControlLabel>PASSWORD</ControlLabel>
+            <FormControl
+              required
+              type='password'
+              value={this.state.password}
+              onChange={this.handleChange('password')}
+            />
+          </FormGroup>
+          <Button disabled={this.isInvalid()} className='Login__button' type='submit'>
+            LOG IN
+          </Button>
+        </form>
+      </div>
     )
   }
 }
