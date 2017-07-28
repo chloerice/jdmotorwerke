@@ -11,15 +11,14 @@ import { logIn } from './reducers/actions/auth'
 import { requestingCustomers } from './reducers/actions/customers'
 import { requestingCars } from './reducers/actions/cars'
 
-let authListener, carsListener, customersListener
+let carsListener, customersListener
 // listen for auth changes and turn on and off database listeners
 auth().onAuthStateChanged(user => {
   if (user) {
-    authListener = store.dispatch(logIn(user))
+    store.dispatch(logIn(user))
     carsListener = store.dispatch(requestingCars())
     customersListener = store.dispatch(requestingCustomers())
   } else {
-    authListener && authListener()
     carsListener && carsListener()
     customersListener && customersListener()
   }
