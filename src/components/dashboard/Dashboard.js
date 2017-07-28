@@ -7,7 +7,7 @@ import { Grid, Nav, NavItem, Row, Col, Glyphicon } from 'react-bootstrap'
 import './Dashboard.css'
 import Sidebar from '../utilities/Sidebar'
 // import ListNewCar from '../dashboard/ListNewCar'
-// import ManageInventory from './ManageInventory'
+import ManageInventory from './ManageInventory'
 // import Customers from './Customers'
 // import EditCar from '../dashboard/EditCar'
 import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
@@ -55,7 +55,7 @@ class Dashboard extends Component {
       {to: '/dashboard/customers', glyph: 'user', text: 'Customers'}
     ]
 
-    // const {user, cars, customers} = this.props
+    const {user, cars, customers} = this.props
     return (
       <Router>
         <div className='Dashboard'>
@@ -120,13 +120,13 @@ class Dashboard extends Component {
                   <Route path='/dashboard/list-new-car' component={() => (
                     <h1>LIST NEW CAR</h1>
                   )} />
-                  <Route path='/dashboard/inventory' component={() => (
-                    <h1>INVENTORY</h1>
+                  <Route exact path='/dashboard/inventory' component={({history}) => (
+                    <ManageInventory cars={cars} history={history} />
                   )} />
-                  <Route path='/dashboard/customers' component={() => (
+                  <Route exact path='/dashboard/customers' component={() => (
                     <h1>CUSTOMERS</h1>
                   )} />
-                  <Route path='/dashboard/cars/:id' component={() => (
+                  <Route exact path='/dashboard/inventory/:id' component={() => (
                     <h1>EDIT LISTING</h1>
                   )} />
                 </Col>

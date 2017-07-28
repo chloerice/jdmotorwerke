@@ -36,13 +36,18 @@ const customers = [
 
 const cars = [
   {
-    yrMkModel: '2010 Suburu Legacy',
+    year: '2010',
+    make: 'Suburu',
+    model: 'Legacy',
+    color: 'Silver',
     purchasePrice: '$1000',
     sellingPrice: '$4000',
+    soldPrice: '',
     status: 'requires parts/service',
     stateOfOrigin: 'CA',
-    cleanTitle: true,
+    title: 'salvage',
     specs: {},
+    VIN: '',
     createdAt: date,
     updatedAt: date
   }
