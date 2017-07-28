@@ -1,7 +1,8 @@
 .container__flex--login {
   color: #FFFFFF;
   color: rgba(255, 255, 255, 0.7);
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
