@@ -32,7 +32,7 @@ class Dashboard extends Component {
     if (event) event.preventDefault()
     this.setState({
       showDashMenu: !this.state.showDashMenu,
-      height: this.state.height === '150px' ? '0' : '150px',
+      height: this.state.height === '190px' ? '0' : '190px',
       padding: this.state.padding === '10px 0' ? '0' : '10px 0',
       opacity: this.state.opacity === 0 ? 1 : 0,
       marginTop: this.state.marginTop === '70px' ? 0 : '70px',
