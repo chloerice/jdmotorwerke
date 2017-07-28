@@ -19,7 +19,7 @@ const App = props => {
             if (!user) return <Redirect to='/login' />
             return <Dashboard />
           }} />
-        <Route exact path='/dashboard/:action/:id' component={() => {
+          <Route exact path='/dashboard/:action/:id' component={() => {
             if (!user) return <Redirect to='/login' />
             return <Dashboard />
           }} />

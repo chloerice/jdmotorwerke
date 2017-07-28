@@ -2,7 +2,9 @@ import { RECEIVE_CARS } from '../constants'
 import { requestCars, updateCar, listNewCar } from './loading'
 import { receiveError } from './error'
 import { readDataOnce, writeData, updateData } from './database'
-import { database } from '../../../firebase'
+import firebase from '../../../firebase'
+
+const database = firebase.database()
 
 /* -------- PURE ACTION(S) -------- */
 export const receiveCars = cars => ({
@@ -38,8 +40,8 @@ export const requestingCars = () => dispatch => {
 
 export const updatingCar = car => dispatch => {
   dispatch(updateCar())
-  return updateData('Cars', car.uid)
-  .then(() => console.log(`Successfully updated car ${car.uid}`))
+  return updateData('Cars', car)
+  .then(() => console.log(`Successfully updated car ${car.id}`))
   .catch(err => receiveError(err))
 }
 

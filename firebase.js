@@ -1,8 +1,4 @@
-const firebase = require('firebase/app')
-exports.firebase = firebase
-require('firebase/auth')
-require('firebase/database')
-require('firebase/storage')
+const firebase = require('firebase')
 // inside the firebase console, create a new project
 // then you'll be able to copy your config object by simply clicking the
 // 'Add Firebase to your web app' button on the Overview screen at
@@ -17,6 +13,5 @@ const config = {
 }
 
 firebase.initializeApp(config)
-exports.storage = firebase.storage()
-exports.database = firebase.database()
-exports.auth = firebase.auth
+
+module.exports = firebase

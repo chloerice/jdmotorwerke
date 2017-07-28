@@ -2,7 +2,9 @@ import { RECEIVE_CUSTOMERS } from '../constants'
 import { requestCustomers, createNewCustomer, updateCustomer } from './loading'
 import { receiveError } from './error'
 import { writeData, updateData } from './database'
-import { database } from '../../../firebase'
+import firebase from '../../../firebase'
+
+const database = firebase.database()
 
 /* -------- PURE ACTION(S) -------- */
 export const receiveCustomers = customers => ({
@@ -31,7 +33,7 @@ export const requestingCustomers = () => dispatch => {
 
 export const updatingCustomer = customer => dispatch => {
   dispatch(updateCustomer())
-  return updateData('Customers', customer.uid)
+  return updateData('Customers', customer)
   .then(() => console.log(`Successfully updated customer ${customer.uid}`))
   .catch(err => receiveError(err))
 }
