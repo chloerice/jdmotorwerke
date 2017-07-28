@@ -1,8 +1,8 @@
-.Contact {
-  text-align: center;
+#Contact {
+  min-height: 100vh;
 }
 
 .Contact-header {
-  padding-top: 75px;
+  padding-top: 25px;
   color: #000000;
 }

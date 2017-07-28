@@ -1,15 +1,39 @@
-.Home {
+.Home__container {
   text-align: center;
   background: url(./hero-home.jpeg) no-repeat center center scroll;
   background-size: cover;
-  background-position: absolute;
-  vertical-align: relative;
-  height: 100%;
+  background-attachment: fixed;
+  height: 100vh;
   width: 100%;
-  margin: 0;
 }
 
-.Home-header {
-  padding-top: 75px;
-  color: #000000;
+.Home {
+  transition: height .5s ease-out;
+}
+
+.Home__header {
+  padding-top: 5%;
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.Home__heading {
+  font-size: 3em !important;
+  font-weight: bolder;
+}
+
+@media only screen and (min-width: 1000px) {
+  .Home__header {
+    padding-top: 7%;
+  }
+
+  .Home__heading {
+    font-size: 6em !important;
+  }
+}
+/* ---------- iPhone 5 ---------- */
+@media only screen and (max-width: 320px) {
+  .Home__heading {
+    font-size: 2.5em !important;
+  }
 }

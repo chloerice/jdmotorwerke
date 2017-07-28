@@ -1,8 +1,9 @@
-.About {
-  text-align: center;
+#About {
+  min-height: 100vh;
+  z-index: 3;
 }
 
 .About-header {
-  padding-top: 75px;
+  padding-top: 25px;
   color: #000000;
 }

@@ -8,7 +8,8 @@ import './index.css'
 import store from './store'
 import { auth } from '../firebase'
 import { logIn } from './reducers/actions/auth'
-import { requestingCars, requestingCustomers } from './reducers/actions/dashboard'
+import { requestingCustomers } from './reducers/actions/customers'
+import { requestingCars } from './reducers/actions/cars'
 
 let authListener, carsListener, customersListener
 // listen for auth changes and turn on and off database listeners
