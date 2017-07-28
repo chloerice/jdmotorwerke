@@ -1,4 +1,4 @@
-const database = require('./firebase').database
+import { database } from '../../../firebase'
 
 // We use these methods in our thunks to read and write to firebase
 
@@ -13,7 +13,7 @@ const readDataOnce = (tableName, key) => {
 }
 
 const writeData = (tableName, dataObj) => {
-  const newKey = database.ref().child(tableName).push().key;
+  const newKey = database.ref().child(tableName).push().key
   return new Promise((resolve, reject) => {
     database.ref(`/${tableName}/${newKey}`)
     .set(dataObj)

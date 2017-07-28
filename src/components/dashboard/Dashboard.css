@@ -1,5 +1,5 @@
-.Dashboard {
-  padding: 60px 0 0;
+.Dashboard .container-fluid {
+  padding-top: 70px;
 }
 
 .Dashboard__sidebar {
@@ -28,4 +28,8 @@
 .Dashboard__nav-item a:active,
 .Dashboard__nav-item a:focus {
   background: #53585A !important;
+}
+
+.Dashboard__nav-item .glyphicon {
+  font-size: inherit;
 }

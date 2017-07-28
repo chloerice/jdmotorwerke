@@ -1,7 +1,8 @@
 /* needs to be inside of a flex container
 (see JobBoard class in Home.css) */
 .Sidebar {
-  width: 100%;
+  min-width: 250px;
+  width: 200px;
 }
 
 .Sidebar__header {

@@ -23,6 +23,7 @@ class Dashboard extends Component {
       opacity: 0,
       height: 0,
       padding: 0,
+      marginTop: 0,
       marginBottom: 0
     }
   }
@@ -31,10 +32,11 @@ class Dashboard extends Component {
     if (event) event.preventDefault()
     this.setState({
       showDashMenu: !this.state.showDashMenu,
-      height: this.state.height === '215px' ? '0' : '215px',
-      padding: this.state.padding === '75px 0 10px 0' ? '0' : '75px 0 10px 0',
+      height: this.state.height === '150px' ? '0' : '150px',
+      padding: this.state.padding === '10px 0' ? '0' : '10px 0',
       opacity: this.state.opacity === 0 ? 1 : 0,
-      marginBottom: this.state.marginBottom === '-60px' ? 0 : '-60px'
+      marginTop: this.state.marginTop === '70px' ? 0 : '70px',
+      marginBottom: this.state.marginBottom === '-70px' ? 0 : '-70px'
     })
   }
 
@@ -43,21 +45,21 @@ class Dashboard extends Component {
       padding: this.state.padding,
       height: this.state.height,
       opacity: this.state.opacity,
+      marginTop: this.state.marginTop,
       marginBottom: this.state.marginBottom
     }
 
     const dashMobileMenu = [
-      {to: '/dashboard/post-new-car', glyph: 'plus-sign', text: 'Post New Car'},
-      {to: '/dashboard/manage-inventory', glyph: 'list-alt', text: 'Manage Inventory'},
+      {to: '/dashboard/list-new-car', glyph: 'plus-sign', text: 'List New Car'},
+      {to: '/dashboard/inventory', glyph: 'list-alt', text: 'Inventory'},
       {to: '/dashboard/customers', glyph: 'user', text: 'Customers'}
     ]
 
-    // const {user, cars, customers} = this.props
-
+    const {user, cars, customers} = this.props
     return (
       <Router>
-        <div>
-          <DashNav logOut={this.props.logOut} toggleDashMenu={this.toggleMainMenu} />
+        <div className='Dashboard'>
+          <DashNav toggleDashMenu={this.toggleDashMenu} />
           <Nav
             className='Dashboard-menu-collapse'
             style={dashMenuStyle}
@@ -73,7 +75,7 @@ class Dashboard extends Component {
                   className='Dashboard__nav-item'
                   key={i}
                 >
-                  <NavItem style={{opacity: this.state.opacity}}>
+                  <NavItem style={dashMenuStyle}>
                     <Glyphicon glyph={link.glyph} /> {link.text}
                   </NavItem>
                 </LinkContainer>
@@ -83,7 +85,7 @@ class Dashboard extends Component {
           <Grid fluid>
             <Row className='Dashboard'>
               <div className='container__flex'>
-                <Col xsHidden sm={3} md={3} lg={3} className='Dashboard__sidebar'>
+                <Col xsHidden sm={3} md={2} lg={2} className='Dashboard__sidebar'>
                   <Sidebar
                     headerText='Oh hai, Jaaan!'
                     content={
@@ -91,23 +93,29 @@ class Dashboard extends Component {
                         <LinkContainer to='/dashboard/list-new-car' className='Dashboard__nav-item'>
                           <NavItem><Glyphicon glyph='plus-sign' /> List New Car</NavItem>
                         </LinkContainer>
-                        <LinkContainer to='/dashboard/manage-inventory' className='Dashboard__nav-item'>
-                          <NavItem><Glyphicon glyph='list-alt' /> Manage Inventory</NavItem>
-                        </LinkContainer>
                         <LinkContainer to='/dashboard/customers' className='Dashboard__nav-item'>
                           <NavItem><Glyphicon glyph='user' /> Customers</NavItem>
                         </LinkContainer>
+                        <LinkContainer to='/dashboard/inventory' className='Dashboard__nav-item'>
+                          <NavItem><Glyphicon glyph='list-alt' /> Inventory</NavItem>
+                        </LinkContainer>
+                        <NavItem
+                          className='Dashboard__nav-item'
+                          onClick={this.props.logOut}
+                        >
+                          <Glyphicon glyph='log-out' /> Log out
+                        </NavItem>
                       </Nav>
                     }
                   />
                 </Col>
-                <Col xs={12} sm={9} md={9} lg={9} className='Dashboard__content'>
+                <Col xs={12} sm={9} md={10} lg={10} className='Dashboard__content'>
                   <ScrollToTopOnMount />
                   <Route path='/dashboard/list-new-car' component={() => (
                     <h1>LIST NEW CAR</h1>
                   )} />
-                  <Route path='/dashboard/manage-inventory' component={() => (
-                    <h1>MANAGE INVENTORY</h1>
+                  <Route path='/dashboard/inventory' component={() => (
+                    <h1>INVENTORY</h1>
                   )} />
                   <Route path='/dashboard/customers' component={() => (
                     <h1>CUSTOMERS</h1>

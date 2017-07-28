@@ -1,7 +1,7 @@
 import { RECEIVE_CARS } from '../constants'
 import { requestCars, updateCar, listNewCar } from './loading'
 import { receiveError } from './error'
-import { readDataOnce, writeData, updateData } from '../../../database'
+import { readDataOnce, writeData, updateData } from './database'
 import { database } from '../../../firebase'
 
 /* -------- PURE ACTION(S) -------- */

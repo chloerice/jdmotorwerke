@@ -1,4 +1,5 @@
 const firebase = require('firebase/app')
+exports.firebase = firebase
 require('firebase/auth')
 require('firebase/database')
 require('firebase/storage')
@@ -16,13 +17,6 @@ const config = {
 }
 
 firebase.initializeApp(config)
-const storage = firebase.storage()
-const database = firebase.database()
-const auth = firebase.auth
-
-module.exports = {
-  auth,
-  storage,
-  database,
-  firebase
-}
+exports.storage = firebase.storage()
+exports.database = firebase.database()
+exports.auth = firebase.auth

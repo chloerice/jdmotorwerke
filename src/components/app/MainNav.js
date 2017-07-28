@@ -4,7 +4,7 @@ import { HashLink } from 'react-router-hash-link'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Glyphicon, Navbar, NavbarBrand, Nav, Image, Col } from 'react-bootstrap'
 import './App.css'
-import brandWhite from './jdmotorwerke-logo-white.svg'
+import brandWhite from './jdmotorwerke-logo-white.png'
 
 class MainNav extends Component {
   constructor (props) {
@@ -15,7 +15,6 @@ class MainNav extends Component {
   }
 
   render () {
-
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>

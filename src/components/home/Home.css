@@ -2,7 +2,6 @@
   text-align: center;
   background: url(./hero-home.jpeg) no-repeat center center scroll;
   background-size: cover;
-  background-attachment: fixed;
   height: 100vh;
   width: 100%;
 }
@@ -18,17 +17,23 @@
 }
 
 .Home__heading {
-  font-size: 3em !important;
+  font-size: 3.25em !important;
   font-weight: bolder;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 768px) {
+  .Home__container {
+    background-attachment: fixed;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
   .Home__header {
-    padding-top: 7%;
+    padding-top: 4%;
   }
 
   .Home__heading {
-    font-size: 6em !important;
+    font-size: 5em !important;
   }
 }
 /* ---------- iPhone 5 ---------- */

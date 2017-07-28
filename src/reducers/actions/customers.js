@@ -1,7 +1,7 @@
 import { RECEIVE_CUSTOMERS } from '../constants'
 import { requestCustomers, createNewCustomer, updateCustomer } from './loading'
 import { receiveError } from './error'
-import { writeData, updateData } from '../../../database'
+import { writeData, updateData } from './database'
 import { database } from '../../../firebase'
 
 /* -------- PURE ACTION(S) -------- */

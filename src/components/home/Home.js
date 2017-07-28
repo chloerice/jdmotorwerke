@@ -5,7 +5,6 @@ import About from '../about/About'
 import Contact from '../contact/Contact'
 import Inventory from '../inventory/Inventory'
 import MainNav from '../app/MainNav'
-import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
 import './Home.css'
 
 class Home extends Component {
@@ -28,8 +27,7 @@ class Home extends Component {
       showMainMenu: !this.state.showMainMenu,
       height: this.state.height === '150px' ? '0' : '150px',
       padding: this.state.padding === '10px 0' ? '0' : '10px 0',
-      opacity: this.state.opacity === 0 ? 0.7 : 0,
-      // marginBottom: this.state.marginBottom === '-60px' ? 0 : '-60px'
+      opacity: this.state.opacity === 0 ? 0.7 : 0
     })
   }
 
@@ -47,7 +45,7 @@ class Home extends Component {
       {to: '/#Inventory', text: 'Inventory'},
       {to: '/#Contact', text: 'Contact'}
     ]
-    console.log(this.state)
+
     return (
       <div className='Home__container'>
         <MainNav toggleMainMenu={this.toggleMainMenu} />
