@@ -63,8 +63,6 @@ export default class ManageInventory extends Component {
 }
 
 ManageInventory.propTypes = {
-  closecar: PropTypes.func.isRequired,
-  duplicatecar: PropTypes.func.isRequired,
-  Inventory: PropTypes.array.isRequired,
+  cars: PropTypes.array.isRequired,
   history: PropTypes.object
 }

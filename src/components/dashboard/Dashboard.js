@@ -8,7 +8,7 @@ import './Dashboard.css'
 import Sidebar from '../utilities/Sidebar'
 // import ListNewCar from '../dashboard/ListNewCar'
 import ManageInventory from './ManageInventory'
-// import Customers from './Customers'
+import Customers from './Customers'
 // import EditCar from '../dashboard/EditCar'
 import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
 import DashNav from './DashNav'
@@ -123,8 +123,8 @@ class Dashboard extends Component {
                   <Route exact path='/dashboard/inventory' component={({history}) => (
                     <ManageInventory cars={cars} history={history} />
                   )} />
-                  <Route exact path='/dashboard/customers' component={() => (
-                    <h1>CUSTOMERS</h1>
+                  <Route exact path='/dashboard/customers' component={({history}) => (
+                    <Customers customers={customers} history={history} />
                   )} />
                   <Route exact path='/dashboard/inventory/:id' component={() => (
                     <h1>EDIT LISTING</h1>
@@ -145,7 +145,8 @@ Dashboard.propTypes = {
   cars: PropTypes.array,
   customers: PropTypes.array,
   removeCar: PropTypes.func,
-  duplicateCar: PropTypes.func,
+  updateCar: PropTypes.func,
+  updateCustomer: PropTypes.func,
   logOut: PropTypes.func
 }
 

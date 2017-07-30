@@ -8,7 +8,7 @@ const Contact = props => (
       <header className='Contact-header'>
         <h2>CONTACT</h2>
         <p>
-          Having trouble finding your dream car? Give us a call at 530-646-6083, or fill out the form below.
+          Having trouble finding your dream car? Give us a call at (530) 238-5853 or fill out the form below.
         </p>
       </header>
     </Col>
