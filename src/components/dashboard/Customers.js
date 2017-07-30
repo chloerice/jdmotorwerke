@@ -18,7 +18,7 @@ export default class Customers extends Component {
     const {customers} = this.props
     return (
       <Row className='Customers'>
-        <h1 className='Customers-header'>MANAGE INVENTORY</h1>
+        <h1 className='Customers-header'>CUSTOMER INQUIRIES</h1>
         <Table responsive>
           <thead>
             <tr>
