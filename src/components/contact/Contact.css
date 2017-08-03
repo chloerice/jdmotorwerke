@@ -1,8 +1,9 @@
 #Contact {
   min-height: 100vh;
+  color: #FFFFFF;
+  padding: 15px
 }
 
 .Contact-header {
-  padding-top: 25px;
-  color: #000000;
+  padding: 25px;
 }

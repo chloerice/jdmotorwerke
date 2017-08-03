@@ -34,6 +34,20 @@ a {
   font-size: 1.5em;
 }
 
+.separator {
+  width: 60px;
+  border-top: 3px solid #5A92C5;
+  margin-top: 0;
+}
+
+.separator--white {
+  border-top: 3px solid #FFFFFF;
+}
+
+.text-muted {
+  color: #777777;
+}
+
 /* ------ Navbar ------ */
 
 .navbar {

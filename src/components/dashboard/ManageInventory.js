@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Table, Row, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import './ManageInventory.css'
+import './Table.css'
 
 export default class ManageInventory extends Component {
 
@@ -20,7 +20,7 @@ export default class ManageInventory extends Component {
     return (
       <Row className='ManageInventory'>
         <h1 className='ManageInventory-header'>MANAGE INVENTORY</h1>
-        <Table responsive>
+        <Table responsive striped hover={false}>
           <thead>
             <tr>
               <td>YR MK MODEL COLOR</td>

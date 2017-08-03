@@ -1,13 +1,15 @@
+.Customers,
 .ManageInventory {
   padding: 5px 10px;
 }
 
+.Customers-header,
 .ManageInventory-header {
   text-align: center;
 }
 
 table {
-  background: #F5F5F5;
+  background: #F9F9F9;
 }
 
 .table-responsive {
@@ -20,19 +22,20 @@ td {
 
 thead {
   background: #FFFFFF;
+  color: #000000;
 }
 
-tbody > tr:hover {
+.table-striped > tbody > tr:nth-of-type(even) {
   background: #FFFFFF;
-  transition: all 0.1s ease-in;
-  transition-duration: 0.1s;
 }
 
 @media only screen and (min-width: 768px) {
+  .Customers,
   .ManageInventory {
     padding: 5px 40px;
   }
 
+  .Customers-header,
   .ManageInventory-header {
     text-align: left;
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Row } from 'react-bootstrap'
 import PropTypes from 'prop-types'
-import './Customers.css'
+import './Table.css'
 
 export default class Customers extends Component {
 
@@ -19,7 +19,7 @@ export default class Customers extends Component {
     return (
       <Row className='Customers'>
         <h1 className='Customers-header'>CUSTOMER INQUIRIES</h1>
-        <Table responsive>
+        <Table responsive striped>
           <thead>
             <tr>
               <td>NAME</td>

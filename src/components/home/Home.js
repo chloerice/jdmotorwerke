@@ -77,7 +77,6 @@ class Home extends Component {
             </Col>
           </Row>
           <About />
-          <Inventory />
           <Contact />
         </Grid>
       </div>

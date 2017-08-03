@@ -7,35 +7,46 @@ import Dashboard from '../dashboard/Dashboard'
 import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
 import Login from '../login/Login'
 import './App.css'
+import Loading from '../utilities/LoadingAnimation'
 
 const App = props => {
-  const {user} = props
+  const {user, loading} = props
   return (
     <Router>
-      <div className='App'>
-        <ScrollToTopOnMount />
-        <Switch>
-          <Route exact path='/dashboard/:action' component={() => {
-            if (!user) return <Redirect to='/login' />
-            return <Dashboard />
-          }} />
-          <Route exact path='/dashboard/:action/:id' component={() => {
-            if (!user) return <Redirect to='/login' />
-            return <Dashboard />
-          }} />
-          {/* PUBLIC ROUTES */}
-          <Route exact strict path='/' component={Home} />
-          <Route exact path='/login' component={Login} />
-        </Switch>
-      </div>
+      <Loading isLoading={loading} delay='1s'>
+        <div className='App'>
+          <ScrollToTopOnMount />
+          <Switch>
+            <Route exact path='/dashboard/:action' component={() => {
+              if (!user) return <Redirect to='/login' />
+              return <Dashboard />
+            }} />
+            <Route exact path='/dashboard/:action/:id' component={() => {
+              if (!user) return <Redirect to='/login' />
+              return <Dashboard />
+            }} />
+            {/* PUBLIC ROUTES */}
+            <Route exact strict path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
+        </div>
+      </Loading>
     </Router>
   )
 }
 
 App.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  loading: PropTypes.bool,
+  cars: PropTypes.array,
+  customers: PropTypes.array
 }
 
-const mapStateToProps = state => ({ user: state.auth })
+const mapStateToProps = state => ({
+  user: state.auth,
+  cars: state.cars,
+  customers: state.customers,
+  loading: state.loading
+})
 
 export default withRouter(connect(mapStateToProps)(App))
