@@ -6,6 +6,7 @@
     "bluebird": "^3.5.0",
     "firebase": "^3.8.0",
     "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.6.0",
     "react-animate-on-scroll": "^1.2.1",
     "react-bootstrap": "^0.31.1",
     "react-dom": "^15.5.4",

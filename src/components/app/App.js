@@ -13,24 +13,34 @@ const App = props => {
   const {user, loading, cars, customers} = props
   return (
     <Router>
-      <Loading isLoading={cars.length < 0 && customers.length < 0 && loading}>
-        <div className='App'>
-          <ScrollToTopOnMount />
-          <Switch>
-            <Route exact path='/dashboard/:action' component={() => {
-              if (!user) return <Redirect to='/login' />
-              return <Dashboard />
-            }} />
-            <Route exact path='/dashboard/:action/:id' component={() => {
-              if (!user) return <Redirect to='/login' />
-              return <Dashboard />
-            }} />
+      <div className='App'>
+        <ScrollToTopOnMount />
+        <Switch>
+          <Loading isLoading={cars.length === 0 && customers.length === 0}>
+            <Route
+              location={location}
+              key={location.key}
+              path='/dashboard/:action'
+              render={() => {
+                if (!user) return <Redirect to='/login' />
+                return <Dashboard />
+              }
+            } />
+            <Route
+              location={location}
+              key={location.key}
+              path='/dashboard/:action/:id'
+              render={() => {
+                if (!user) return <Redirect to='/login' />
+                return <Dashboard />
+              }
+            } />
             {/* PUBLIC ROUTES */}
             <Route exact strict path='/' component={Home} />
             <Route exact path='/login' component={Login} />
-          </Switch>
-        </div>
-      </Loading>
+          </Loading>
+        </Switch>
+      </div>
     </Router>
   )
 }

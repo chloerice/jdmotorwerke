@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Table, Row } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import './Table.css'
@@ -37,7 +38,11 @@ export default class Customers extends Component {
               customers.map((customer, i) => {
                 return (
                   <tr key={i}>
-                    <td>{customer.name}</td>
+                    <td>
+                      <Link to={`/dashboard/customers/${customer.id}`}>
+                        {customer.name}
+                      </Link>
+                    </td>
                     <td>{customer.email}</td>
                     <td>{customer.phone}</td>
                     <td>{customer.zipCode}</td>

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, withRouter, Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Grid, Nav, NavItem, Row, Col, Glyphicon } from 'react-bootstrap'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './Dashboard.css'
 import Sidebar from '../utilities/Sidebar'
 // import ListNewCar from '../dashboard/ListNewCar'
@@ -58,82 +59,87 @@ class Dashboard extends Component {
     const {user, cars, customers} = this.props
     return (
       <Router>
-        <div className='Dashboard'>
-          <DashNav toggleDashMenu={this.toggleDashMenu} />
-          <Nav
-            className='Dashboard-menu-collapse'
-            style={dashMenuStyle}
-            stacked
-            onSelect={this.toggleDashMenu}
-          >
-            <ScrollToTopOnMount scroll={this.state.showDashMenu} />
-            {
-              dashMobileMenu.map((link, i) => (
-                <LinkContainer
-                  hidden={this.state.showDashMenu}
-                  to={link.to}
-                  className='Dashboard__nav-item'
-                  key={i}
-                >
-                  <NavItem style={dashMenuStyle}>
-                    <Glyphicon glyph={link.glyph} /> {link.text}
-                  </NavItem>
-                </LinkContainer>
-              ))
-            }
-            <NavItem
-              className='Dashboard__nav-item'
-              onClick={this.props.logOut}
+        <Route render={({ location }) => (
+          <div className='Dashboard'>
+            <DashNav toggleDashMenu={this.toggleDashMenu} />
+            <Nav
+              className='Dashboard-menu-collapse'
+              style={dashMenuStyle}
+              stacked
+              onSelect={this.toggleDashMenu}
             >
-              <Glyphicon glyph='log-out' /> Log out
-            </NavItem>
-          </Nav>
-          <Grid fluid>
-            <Row className='Dashboard'>
-              <div className='container__flex'>
-                <Col xsHidden sm={3} md={2} lg={2} className='Dashboard__sidebar'>
-                  <Sidebar
-                    headerText='Oh hai, Jaaan!'
-                    content={
-                      <Nav className='Sidebar__button-container' stacked>
-                        <LinkContainer to='/dashboard/list-new-car' className='Dashboard__nav-item'>
-                          <NavItem><Glyphicon glyph='plus-sign' /> List New Car</NavItem>
-                        </LinkContainer>
-                        <LinkContainer to='/dashboard/customers' className='Dashboard__nav-item'>
-                          <NavItem><Glyphicon glyph='user' /> Customers</NavItem>
-                        </LinkContainer>
-                        <LinkContainer to='/dashboard/inventory' className='Dashboard__nav-item'>
-                          <NavItem><Glyphicon glyph='list-alt' /> Inventory</NavItem>
-                        </LinkContainer>
-                        <NavItem
-                          className='Dashboard__nav-item'
-                          onClick={this.props.logOut}
-                        >
-                          <Glyphicon glyph='log-out' /> Log out
-                        </NavItem>
-                      </Nav>
-                    }
-                  />
-                </Col>
-                <Col xs={12} sm={9} md={10} lg={10} className='Dashboard__content'>
-                  <ScrollToTopOnMount />
-                  <Route path='/dashboard/list-new-car' component={() => (
-                    <h1>LIST NEW CAR</h1>
-                  )} />
-                  <Route exact path='/dashboard/inventory' component={({history}) => (
-                    <ManageInventory cars={cars} history={history} />
-                  )} />
-                  <Route exact path='/dashboard/customers' component={({history}) => (
-                    <Customers customers={customers} history={history} />
-                  )} />
-                  <Route exact path='/dashboard/inventory/:id' component={() => (
-                    <h1>EDIT LISTING</h1>
-                  )} />
-                </Col>
-              </div>
-            </Row>
-          </Grid>
-        </div>
+              <ScrollToTopOnMount scroll={this.state.showDashMenu} />
+              {
+                dashMobileMenu.map((link, i) => (
+                  <LinkContainer
+                    hidden={this.state.showDashMenu}
+                    to={link.to}
+                    className='Dashboard__nav-item'
+                    key={i}
+                  >
+                    <NavItem style={dashMenuStyle}>
+                      <Glyphicon glyph={link.glyph} /> {link.text}
+                    </NavItem>
+                  </LinkContainer>
+                ))
+              }
+              <NavItem
+                className='Dashboard__nav-item'
+                onClick={this.props.logOut}
+              >
+                <Glyphicon glyph='log-out' /> Log out
+              </NavItem>
+            </Nav>
+            <Grid fluid>
+              <Row className='Dashboard'>
+                <div className='container__flex'>
+                  <Col xsHidden sm={3} md={2} lg={2} className='Dashboard__sidebar'>
+                    <Sidebar
+                      headerText='Oh hai, Jaaan!'
+                      content={
+                        <Nav className='Sidebar__button-container' stacked>
+                          <LinkContainer to='/dashboard/list-new-car' className='Dashboard__nav-item'>
+                            <NavItem><Glyphicon glyph='plus-sign' /> List New Car</NavItem>
+                          </LinkContainer>
+                          <LinkContainer to='/dashboard/customers' className='Dashboard__nav-item'>
+                            <NavItem><Glyphicon glyph='user' /> Customers</NavItem>
+                          </LinkContainer>
+                          <LinkContainer to='/dashboard/inventory' className='Dashboard__nav-item'>
+                            <NavItem><Glyphicon glyph='list-alt' /> Inventory</NavItem>
+                          </LinkContainer>
+                          <NavItem
+                            className='Dashboard__nav-item'
+                            onClick={this.props.logOut}
+                          >
+                            <Glyphicon glyph='log-out' /> Log out
+                          </NavItem>
+                        </Nav>
+                      }
+                    />
+                  </Col>
+                  <Col xs={12} sm={9} md={10} lg={10} className='Dashboard__content'>
+                    <ScrollToTopOnMount />
+                    <Route exact path='/dashboard/list-new-car' component={() => (
+                      <h1>LIST NEW CAR</h1>
+                    )} />
+                    <Route exact path='/dashboard/inventory' component={({history}) => (
+                      <ManageInventory cars={cars} history={history} />
+                    )} />
+                    <Route exact path='/dashboard/inventory/:id' component={() => (
+                      <Link to='/'><h1>EDIT LISTING</h1></Link>
+                    )} />
+                    <Route exact path='/dashboard/customers' component={({history}) => (
+                      <Customers customers={customers} history={history} />
+                    )} />
+                    <Route exact path='/dashboard/customers/:id' component={() => (
+                      <h1>UPDATE CUSTOMER</h1>
+                    )} />
+                  </Col>
+                </div>
+              </Row>
+            </Grid>
+          </div>
+        )} />
       </Router>
     )
   }

@@ -1,5 +1,5 @@
-import { REQUEST_CARS, REQUEST_CUSTOMERS,
-         RECEIVE_CARS, RECEIVE_CUSTOMERS,
+import { REQUEST_CARS, REQUEST_CUSTOMERS, LOGGING_IN,
+         RECEIVE_CARS, RECEIVE_CUSTOMERS, AUTHENTICATING,
          LIST_NEW_CAR, UPDATE_CAR, MARK_CAR_SOLD } from './constants'
 
 const loadingReducer = (state = false, action) => {
@@ -11,6 +11,8 @@ const loadingReducer = (state = false, action) => {
     case MARK_CAR_SOLD: return true
     case RECEIVE_CARS: return false
     case RECEIVE_CUSTOMERS: return false
+    case AUTHENTICATING: return true
+    case LOGGING_IN: return false
     default: return state
   }
 }

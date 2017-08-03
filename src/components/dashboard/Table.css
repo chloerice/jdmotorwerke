@@ -1,5 +1,6 @@
 .Customers,
 .ManageInventory {
+  min-height: 100vh;
   padding: 5px 10px;
 }
 
