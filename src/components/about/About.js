@@ -23,7 +23,7 @@ const About = props => (
           </p>
         </Col>
         <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn' delay='0.3s'>
+          <ScrollAnimation animateIn='zoomIn' delay={0.3}>
             <Glyphicon className='About--glyphicon glyph-2'glyph='certificate' />
           </ScrollAnimation>
           <h3>Licensed & Insured</h3>
@@ -32,7 +32,7 @@ const About = props => (
           </p>
         </Col>
         <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn' delay='0.5s'>
+          <ScrollAnimation animateIn='zoomIn' delay={0.5}>
             <Glyphicon className='About--glyphicon glyph-3' glyph='search' />
           </ScrollAnimation>
           <h3>Nationwide Search</h3>

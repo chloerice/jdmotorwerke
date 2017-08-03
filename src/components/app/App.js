@@ -10,10 +10,10 @@ import './App.css'
 import Loading from '../utilities/LoadingAnimation'
 
 const App = props => {
-  const {user, loading} = props
+  const {user, loading, cars, customers} = props
   return (
     <Router>
-      <Loading isLoading={loading} delay='1s'>
+      <Loading isLoading={cars.length < 0 && customers.length < 0 && loading}>
         <div className='App'>
           <ScrollToTopOnMount />
           <Switch>
