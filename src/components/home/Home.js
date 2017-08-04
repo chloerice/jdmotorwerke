@@ -3,7 +3,6 @@ import { Grid, Row, Col, Nav } from 'react-bootstrap'
 import { HashLink } from 'react-router-hash-link'
 import About from '../about/About'
 import Contact from '../contact/Contact'
-import Inventory from '../inventory/Inventory'
 import MainNav from '../app/MainNav'
 import './Home.css'
 

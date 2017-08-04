@@ -4,42 +4,40 @@ import { BrowserRouter as Router, Route, withRouter, Redirect, Switch } from 're
 import PropTypes from 'prop-types'
 import Home from '../home/Home'
 import Dashboard from '../dashboard/Dashboard'
-import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
 import Login from '../login/Login'
+import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
 import './App.css'
 import Loading from '../utilities/LoadingAnimation'
 
 const App = props => {
-  const {user, loading, cars, customers} = props
+  const {user, cars, customers} = props
   return (
     <Router>
       <div className='App'>
         <ScrollToTopOnMount />
-        <Switch>
-          <Loading isLoading={cars.length === 0 && customers.length === 0}>
-            <Route
-              location={location}
-              key={location.key}
-              path='/dashboard/:action'
-              render={() => {
-                if (!user) return <Redirect to='/login' />
-                return <Dashboard />
-              }
-            } />
-            <Route
-              location={location}
-              key={location.key}
-              path='/dashboard/:action/:id'
-              render={() => {
-                if (!user) return <Redirect to='/login' />
-                return <Dashboard />
-              }
-            } />
-            {/* PUBLIC ROUTES */}
-            <Route exact strict path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-          </Loading>
-        </Switch>
+        <Route render={({location, match, history}) => (
+          <Switch location={location} key={location.key}>
+            <Loading isLoading={cars.length === 0 && customers.length === 0}>
+              <Route
+                path='/dashboard/:action'
+                render={() => {
+                  if (!user) return <Redirect to='/login' />
+                  return <Dashboard />
+                }
+              } />
+              <Route
+                path='/dashboard/:action/:id'
+                render={() => {
+                  if (!user) return <Redirect to='/login' />
+                  return <Dashboard />
+                }
+              } />
+              {/* PUBLIC ROUTES */}
+              <Route exact strict path='/' component={Home} />
+              <Route exact path='/login' component={Login} />
+            </Loading>
+          </Switch>
+        )} />
       </div>
     </Router>
   )

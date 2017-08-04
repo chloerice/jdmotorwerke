@@ -4,6 +4,37 @@
   padding: 15px
 }
 
-.Contact-header {
+.Contact__header {
   padding: 25px;
+}
+
+.Contact__form {
+  padding: 30px 0;
+}
+
+.align-left {
+  text-align: left
+}
+
+.form-group {
+  width: 100%;
+}
+
+.btn-primary {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+
+  .Contact__form {
+    padding: 30px 150px;
+  }
+
+  .form-group {
+    margin: 15px 0;
+  }
+
+  .btn-primary {
+    width: auto;
+  }
 }

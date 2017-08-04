@@ -38,7 +38,7 @@ export const updatingCustomer = customer => dispatch => {
   .catch(err => receiveError(err))
 }
 
-export const creatingNewCustomer = customer => dispatch => {
+export const creatingCustomer = customer => dispatch => {
   dispatch(createNewCustomer())
   return writeData('Customers', customer)
   .then(() => console.log(`Successfully created ${customer.name}`))
