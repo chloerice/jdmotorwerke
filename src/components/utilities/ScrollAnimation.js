@@ -18,6 +18,7 @@ export default class ScrollAnimation extends Component {
     super(props)
     const initialHide = this.props.initiallyVisible ? '' : 'hidden'
     this.state = {
+      classes: '',
       style: {
         animationDuration: `${this.props.duration}s`,
         visibility: initialHide
@@ -35,11 +36,13 @@ export default class ScrollAnimation extends Component {
   }
 
   componentDidMount () {
-    this.setState({
-      elementBottom: this.node.getBoundingClientRect().bottom + ScrollAnimation.posTop(),
-      elementTop: this.node.getBoundingClientRect().top + ScrollAnimation.posTop()
-    }, this.handleScroll)
-    this.handleScroll()
+    if (!this.state.hasAnimated) {
+      this.setState({
+        elementBottom: this.node.getBoundingClientRect().bottom + ScrollAnimation.posTop(),
+        elementTop: this.node.getBoundingClientRect().top + ScrollAnimation.posTop()
+      }, this.handleScroll)
+      this.handleScroll()
+    }
   }
 
   componentWillUnmount () {
@@ -57,7 +60,7 @@ export default class ScrollAnimation extends Component {
         visible.partially !== this.state.lastVisibility.partially) {
       const style = this.getStyle(visible)
       const classes = this.getClasses(visible)
-      if (visible.partially) {
+      if (visible.partially && !this.props.animateOnce) {
         const timeout = setTimeout(() => {
           this.setState({ classes, style, lastVisibility: visible })
         }, this.props.delay)
@@ -65,7 +68,9 @@ export default class ScrollAnimation extends Component {
         timeouts.push(timeout)
         this.setState({ timeouts, hasAnimated: true })
       } else {
-        this.setState({ classes, style, lastVisibility: visible })
+        if (!this.state.hasAnimated) {
+          this.setState({ classes, style, lastVisibility: visible, hasAnimated: true })
+        }
       }
     }
   }
@@ -118,7 +123,7 @@ export default class ScrollAnimation extends Component {
       !this.state.lastVisibility.partially &&
       !this.props.initiallyVisible
     ) {
-      style.opacity = 0
+      style.opacity = 1
     }
     return style
   }
@@ -127,12 +132,9 @@ export default class ScrollAnimation extends Component {
     let classes = 'animated'
     if (this.props.animateOnce && this.state.hasAnimated) return classes
     if (
-      this.props.animateIn &&
-      (
-        visible.completely ||
+      (this.props.animateIn && visible.completely) ||
         (visible.partially && !this.state.classes.includes(this.props.animateIn) && !this.props.animateOut)
-      )
-    ) {
+      ) {
       classes += ` ${this.props.animateIn}`
     } else if (
       visible.partially &&

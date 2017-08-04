@@ -14,7 +14,7 @@ const About = props => (
     <Col xs={12} sm={12} md={12} lg={12}>
       <Row>
         <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn fadeIn' animateOnce>
+          <ScrollAnimation animateIn='zoomIn' animateOnce>
             <Glyphicon className='About--glyphicon glyph-1' glyph='star' />
           </ScrollAnimation>
           <h3>Quality Guaranteed</h3>
@@ -23,7 +23,7 @@ const About = props => (
           </p>
         </Col>
         <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn fadeIn' delay={0.2} animateOnce>
+          <ScrollAnimation animateIn='zoomIn' animateOnce>
             <Glyphicon className='About--glyphicon glyph-2'glyph='certificate' />
           </ScrollAnimation>
           <h3>Licensed & Insured</h3>
@@ -32,7 +32,7 @@ const About = props => (
           </p>
         </Col>
         <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn fadeIn' delay={0.3} animateOnce>
+          <ScrollAnimation animateIn='zoomIn' animateOnce>
             <Glyphicon className='About--glyphicon glyph-3' glyph='search' />
           </ScrollAnimation>
           <h3>Nationwide Search</h3>

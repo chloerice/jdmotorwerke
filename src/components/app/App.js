@@ -10,14 +10,14 @@ import './App.css'
 import Loading from '../utilities/LoadingAnimation'
 
 const App = props => {
-  const {user, cars, customers} = props
+  const {user, cars, customers, loading} = props
   return (
     <Router>
       <div className='App'>
         <ScrollToTopOnMount />
         <Route render={({location, match, history}) => (
           <Switch location={location} key={location.key}>
-            <Loading isLoading={cars.length === 0 && customers.length === 0}>
+            <Loading isLoading={(customers.length === 0 || cars.length === 0) && loading}>
               <Route
                 path='/dashboard/:action'
                 render={() => {

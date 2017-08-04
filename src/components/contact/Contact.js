@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Row, Col, FormControl, ControlLabel, FormGroup, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { creatingCustomer } from '../../reducers/actions/customers'
+import PropTypes from 'prop-types'
 import './Contact.css'
 
 class Contact extends Component {
@@ -27,7 +28,7 @@ class Contact extends Component {
   handleSubmit = event => {
     event.preventDefault()
     const { year, make, model, color, name, email, phone, zipcode, message } = this.state
-    const date = Date.now()
+    const date = new Date().toLocaleDateString()
     const yrMkModelColor = `${year} ${make} ${model}, ${color}`
     const customer = {
       name,
@@ -39,7 +40,22 @@ class Contact extends Component {
       createdAt: date,
       updatedAt: date
     }
+    this.clearForm()
     this.props.createCustomer(customer)
+  }
+
+  clearForm = () => {
+    this.setState({
+      name: '',
+      email: '',
+      phone: '',
+      zipcode: '',
+      make: '',
+      model: '',
+      year: '',
+      color: '',
+      message: ''
+    })
   }
 
   render () {
@@ -122,7 +138,7 @@ class Contact extends Component {
                     <FormControl
                       componentClass='textarea'
                       onChange={this.handleChange('message')}
-                      value={this.state.name}
+                      value={this.state.message}
                     />
                   </FormGroup>
                   <Button bsStyle='primary' bsSize='lg' type='submit'>SUBMIT</Button>
@@ -134,6 +150,10 @@ class Contact extends Component {
       )
     )
   }
+}
+
+Contact.propTypes = {
+  createCustomer: PropTypes.func
 }
 
 const mapDispatchToProps = dispatch => ({
