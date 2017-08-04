@@ -17,7 +17,7 @@ const App = props => {
         <ScrollToTopOnMount />
         <Route render={({location, match, history}) => (
           <Switch location={location} key={location.key}>
-            <Loading isLoading={(customers.length === 0 || cars.length === 0) && loading}>
+            <Loading isLoading={user && (customers.length === 0 || cars.length === 0) && loading}>
               <Route
                 path='/dashboard/:action'
                 render={() => {
