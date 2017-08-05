@@ -6,6 +6,7 @@ import thunkMiddleware from 'redux-thunk'
 const store = createStore(
   rootReducer,
   applyMiddleware(
+    createLogger({collapsed: true}),
     thunkMiddleware
   )
 )

@@ -5,8 +5,10 @@ import PropTypes from 'prop-types'
 import Home from '../home/Home'
 import Dashboard from '../dashboard/Dashboard'
 import Login from '../login/Login'
-import './App.css'
+import About from '../about/About'
+import Inventory from '../inventory/Inventory'
 import Loading from '../utilities/LoadingAnimation'
+import './App.css'
 
 const App = props => {
   const {user, cars, customers, loading} = props
@@ -33,6 +35,8 @@ const App = props => {
               {/* PUBLIC ROUTES */}
               <Route exact strict path='/' component={Home} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/inventory' component={Inventory} />
             </Loading>
           </Switch>
         )} />

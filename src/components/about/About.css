@@ -1,20 +1,10 @@
 #About {
-  min-height: 60vh;
-  z-index: 3;
-  padding-bottom: 50px;
+  min-height: 100vh;
+  padding: 70px;
 }
 
-.About--header {
-  padding: 25px;
+.About__header {
+  text-align: center;
+  padding-top: 25px;
   color: #000000;
-}
-
-.About--highlights {
-  padding: 0 25px;
-}
-
-.About--glyphicon {
-  padding: 30px 10px 15px;
-  font-size: 3em !important;
-  color: #5A92C5;
 }

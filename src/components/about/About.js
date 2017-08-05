@@ -1,48 +1,85 @@
-import React from 'react'
-import { Row, Col, Glyphicon } from 'react-bootstrap'
+import React, { Component } from 'react'
+import { Grid, Row, Col, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import MainNav from '../app/MainNav'
 import './About.css'
-import ScrollAnimation from '../utilities/ScrollAnimation'
+import brandBlack from '../dashboard/jdmotorwerke-logo.png'
 
-const About = props => (
-  <Row id='About'>
-    <Col xs={12} sm={12} md={12} lg={12}>
-      <header className='About--header'>
-        <h2>At Your Service</h2>
-      </header>
-      <hr className='separator' />
-    </Col>
-    <Col xs={12} sm={12} md={12} lg={12}>
-      <Row>
-        <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn' animateOnce>
-            <Glyphicon className='About--glyphicon glyph-1' glyph='star' />
-          </ScrollAnimation>
-          <h3>Quality Guaranteed</h3>
-          <p className='text-muted subtext'>
-            We purchase only the highest quality vehicles, fully inspected and detailed.
-          </p>
-        </Col>
-        <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn' animateOnce>
-            <Glyphicon className='About--glyphicon glyph-2'glyph='certificate' />
-          </ScrollAnimation>
-          <h3>Licensed & Insured</h3>
-          <p className='text-muted subtext'>
-            We are a certified, licensed and insured auto dealer located in Northern California.
-          </p>
-        </Col>
-        <Col className='About--highlights' xs={12} sm={4} md={4} lg={4}>
-          <ScrollAnimation animateIn='zoomIn' animateOnce>
-            <Glyphicon className='About--glyphicon glyph-3' glyph='search' />
-          </ScrollAnimation>
-          <h3>Nationwide Search</h3>
-          <p className='text-muted subtext'>
-            We source and ship clean, low mileage vehicles from exclusive, dealer-only auctions.
-          </p>
-        </Col>
-      </Row>
-    </Col>
-  </Row>
-)
+class About extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      about: 'calc(100vh - 60px)',
+      showMainMenu: false,
+      opacity: 0,
+      height: 0,
+      padding: 0,
+      marginBottom: 0
+    }
+  }
+
+  toggleMainMenu = (event) => {
+    if (event) event.preventDefault()
+    this.setState({
+      about: this.state.about === 'calc(100vh - 150px)'
+        ? 'calc(100vh - 60px)'
+        : 'calc(100vh - 105px)',
+      showMainMenu: !this.state.showMainMenu,
+      height: this.state.height === '150px' ? '0' : '150px',
+      padding: this.state.padding === '10px 0' ? '0' : '10px 0',
+      opacity: this.state.opacity === 0 ? 0.7 : 0
+    })
+  }
+
+  render () {
+    const menuCollapseStyle = {
+      home: this.state.home,
+      padding: this.state.padding,
+      height: this.state.height,
+      opacity: this.state.opacity,
+      marginBottom: this.state.marginBottom
+    }
+
+    const mainMobileMenu = [
+      {to: '/', text: 'Home'},
+      {to: '/about', text: 'About'},
+      {to: '/inventory', text: 'Inventory'}
+    ]
+    let display = this.state.height === '0' ? 'none' : 'block'
+    return (
+      <div>
+        <MainNav black brand={brandBlack} links={mainMobileMenu} toggleMainMenu={this.toggleMainMenu} />
+        <Nav
+          className='Dashboard-menu-collapse gradient'
+          style={menuCollapseStyle}
+          stacked
+        >
+          {
+            mainMobileMenu.map((link, i) => (
+              <li
+                className='Dashboard__nav-item'
+                key={i}
+                onClick={this.toggleMainMenu}
+              >
+                <Link to={link.to} style={{display}}>
+                  {link.text}
+                </Link>
+              </li>
+            ))
+          }
+        </Nav>
+        <Grid fluid>
+          <Row id='About' style={{height: this.state.about}}>
+            <Col>
+              <header className='About__header'>
+                <h2>(ABOUT)</h2>
+              </header>
+            </Col>
+          </Row>
+        </Grid>
+      </div>
+    )
+  }
+}
 
 export default About

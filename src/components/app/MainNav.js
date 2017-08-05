@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Glyphicon, Navbar, NavbarBrand, Nav, Image, Col } from 'react-bootstrap'
 import './App.css'
-import brandWhite from './jdmotorwerke-logo-white.png'
 
 class MainNav extends Component {
   constructor (props) {
@@ -15,17 +14,21 @@ class MainNav extends Component {
   }
 
   render () {
+    const {links, brand, black, toggleMainMenu} = this.props
     return (
-      <Navbar collapseOnSelect>
+      <Navbar collapseOnSelect className={black ? 'navbar-black' : ''}>
         <Navbar.Header>
           <NavbarBrand>
             <LinkContainer to='/'>
-              <Image src={brandWhite} alt='JD Motorwerke logo' height='60px' />
+              <Image
+                src={brand}
+                alt='JD Motorwerke logo' height='60px'
+              />
             </LinkContainer>
           </NavbarBrand>
           <Col
-            onClick={this.props.toggleMainMenu}
-            className='Home-menuToggle'
+            onClick={toggleMainMenu}
+            className={black ? 'Home-menuToggle black' : 'Home-menuToggle'}
             xs={2} smHidden mdHidden lgHidden
           >
             <Glyphicon glyph='align-justify' />
@@ -34,15 +37,26 @@ class MainNav extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight className='nav-main'>
-            <li>
-              <HashLink to='/about' onSelect={this.toggleMenuCollapse}>About</HashLink>
-            </li>
-            <li>
-              <HashLink to='/inventory' onSelect={this.toggleMenuCollapse}>Inventory</HashLink>
-            </li>
-            <li onSelect={this.toggleMenuCollapse}>
-              <HashLink to='/#Contact'>Contact</HashLink>
-            </li>
+            {
+              links.map((link, i) => {
+                return link.hash
+                  ? (
+                    <li key={i}>
+                      <HashLink to={link.to} onSelect={this.toggleMenuCollapse}>
+                        {link.text}
+                      </HashLink>
+                    </li>
+                  )
+
+                  : (
+                    <li key={i}>
+                      <Link to={link.to} onSelect={this.toggleMenuCollapse}>
+                        {link.text}
+                      </Link>
+                    </li>
+                  )
+              })
+            }
           </Nav>
         </Navbar.Collapse>
       </Navbar>

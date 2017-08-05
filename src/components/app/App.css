@@ -86,28 +86,17 @@ a {
   margin-top: 6px;
 }
 
-.navbar-default .nav-dashboard>li>a {
+.navbar-black .navbar-nav>li>a {
   color: #000000;
   margin-top: 6px;
 }
-
-/*.active, a:hover, a:focus,
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus,*/
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus,
-.navbar-default .navbar-nav>li:active a {
+.navbar-default .navbar-nav>li:active a,
+.navbar-black .navbar-nav>li>a:hover,
+.navbar-black .navbar-nav>li>a:focus,
+.navbar-black .navbar-nav>li:active a {
   color: #A83935;
-  background: none;
-  transition: all 0.1s ease-in-out;
-  transition-duration: 0.2s;
-}
-
-.navbar-default .nav-dashboard>li>a:hover,
-.navbar-default .nav-dashboard>li>a:focus,
-.navbar-default .nav-dashboard>li:active a {
-  color: #323638;
   background: none;
   transition: all 0.1s ease-in-out;
   transition-duration: 0.2s;
@@ -179,6 +168,10 @@ a {
   color: rgba(255, 255, 255, 0.7);
   padding: 9px 10px;
   margin: 15px 5px 16px 0;
+}
+
+.black span {
+  color: #141414;
 }
 
 .Home-menuToggle {

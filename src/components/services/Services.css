@@ -1,0 +1,20 @@
+#Services {
+  min-height: 60vh;
+  z-index: 3;
+  padding-bottom: 50px;
+}
+
+.Services--header {
+  padding: 25px;
+  color: #000000;
+}
+
+.Services--highlights {
+  padding: 0 25px;
+}
+
+.Services--glyphicon {
+  padding: 30px 10px 15px;
+  font-size: 3em !important;
+  color: #5A92C5;
+}

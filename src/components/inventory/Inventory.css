@@ -1,8 +1,10 @@
 #Inventory {
   min-height: 100vh;
+  padding: 75px 15px;
 }
 
-.Inventory-header {
+.Inventory__header {
+  text-align: center;
   padding-top: 25px;
   color: #000000;
 }

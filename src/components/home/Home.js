@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Nav } from 'react-bootstrap'
 import { HashLink } from 'react-router-hash-link'
-import About from '../about/About'
+import Services from '../services/Services'
 import Contact from '../contact/Contact'
 import MainNav from '../app/MainNav'
 import './Home.css'
+import brandWhite from '../app/jdmotorwerke-logo-white.png'
 
 class Home extends Component {
   constructor (props) {
@@ -42,13 +43,12 @@ class Home extends Component {
     const mainMobileMenu = [
       {to: '/about', text: 'About'},
       {to: '/inventory', text: 'Inventory'},
-      {to: '/#Contact', text: 'Contact'}
-
+      {to: '/#Contact', text: 'Contact', hash: true}
     ]
 
     return (
       <div className='Home__container'>
-        <MainNav toggleMainMenu={this.toggleMainMenu} />
+        <MainNav brand={brandWhite} toggleMainMenu={this.toggleMainMenu} links={mainMobileMenu} />
         <Nav
           className='Dashboard-menu-collapse gradient'
           style={menuCollapseStyle}
@@ -76,7 +76,7 @@ class Home extends Component {
               </header>
             </Col>
           </Row>
-          <About />
+          <Services />
           <Contact />
         </Grid>
       </div>
