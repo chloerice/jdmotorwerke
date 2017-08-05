@@ -70,6 +70,11 @@ class Contact extends Component {
     }, this.showConfirmation)
   }
 
+  isInvalid = () => {
+    const { year, make, model, name, email, phone } = this.state
+    return (!year || !make || !model || !name || !email || !phone)
+  }
+
   render () {
     const {alert, handleDismiss} = this.props
     return (
@@ -111,6 +116,7 @@ class Contact extends Component {
                 <FormGroup className='align-left' controlId='name'>
                   <ControlLabel>NAME</ControlLabel>
                   <FormControl
+                    required
                     onChange={this.handleChange('name')}
                     value={this.state.name}
                   />
@@ -118,6 +124,8 @@ class Contact extends Component {
                 <FormGroup className='align-left' controlId='phone'>
                   <ControlLabel>PHONE</ControlLabel>
                   <FormControl
+                    required
+                    type='tel'
                     onChange={this.handleChange('phone')}
                     value={this.state.phone}
                   />
@@ -125,6 +133,8 @@ class Contact extends Component {
                 <FormGroup className='align-left' controlId='email'>
                   <ControlLabel>EMAIL</ControlLabel>
                   <FormControl
+                    required
+                    type='email'
                     onChange={this.handleChange('email')}
                     value={this.state.email}
                   />
@@ -132,6 +142,7 @@ class Contact extends Component {
                 <FormGroup className='align-left' controlId='zipcode'>
                   <ControlLabel>ZIP CODE</ControlLabel>
                   <FormControl
+                    type='tel'
                     onChange={this.handleChange('zipCode')}
                     value={this.state.zipCode}
                   />
@@ -141,6 +152,7 @@ class Contact extends Component {
                 <FormGroup className='align-left' controlId='make'>
                   <ControlLabel>MAKE</ControlLabel>
                   <FormControl
+                    required
                     onChange={this.handleChange('make')}
                     value={this.state.make}
                   />
@@ -148,6 +160,7 @@ class Contact extends Component {
                 <FormGroup className='align-left' controlId='model'>
                   <ControlLabel>MODEL</ControlLabel>
                   <FormControl
+                    required
                     onChange={this.handleChange('model')}
                     value={this.state.model}
                   />
@@ -155,6 +168,8 @@ class Contact extends Component {
                 <FormGroup className='align-left' controlId='year'>
                   <ControlLabel>YEAR</ControlLabel>
                   <FormControl
+                    required
+                    type='tel'
                     onChange={this.handleChange('year')}
                     value={this.state.year}
                   />
@@ -176,7 +191,9 @@ class Contact extends Component {
                     value={this.state.message}
                   />
                 </FormGroup>
-                <Button bsStyle='primary' bsSize='lg' type='submit'>SUBMIT</Button>
+                <Button bsStyle='primary' bsSize='lg' type='submit' disabled={this.isInvalid()}>
+                  SUBMIT
+                </Button>
               </Col>
             </Row>
           </form>
