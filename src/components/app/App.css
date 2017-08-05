@@ -37,12 +37,6 @@ a {
   flex-direction: column;
 }
 
-@media only screen and (min-width: 500px) {
-  .container__flex {
-    flex-direction: row;
-  }
-}
-
 .glyphicon {
   padding-right: 5px;
   font-size: 1.5em;
@@ -59,7 +53,17 @@ a {
 }
 
 .subtext {
-  font-size: 1.1em;
+  font-size: 1em;
+}
+
+@media only screen and (min-width: 500px) {
+  .container__flex {
+    flex-direction: row;
+  }
+
+  .subtext {
+    font-size: 1.1em;
+  }
 }
 
 /* ------ Navbar ------ */

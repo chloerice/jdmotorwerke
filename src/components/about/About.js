@@ -37,7 +37,7 @@ const About = props => (
           </ScrollAnimation>
           <h3>Nationwide Search</h3>
           <p className='text-muted subtext'>
-            We source clean, low mileage vehicles from exclusive, dealer-only auctions and ship across the US.
+            We source and ship clean, low mileage vehicles from exclusive, dealer-only auctions.
           </p>
         </Col>
       </Row>
