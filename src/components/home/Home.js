@@ -41,7 +41,9 @@ class Home extends Component {
 
     const mainMobileMenu = [
       {to: '/about', text: 'About'},
-      {to: '/inventory', text: 'Inventory'}
+      {to: '/inventory', text: 'Inventory'},
+      {to: '/#Contact', text: 'Contact'}
+
     ]
 
     return (

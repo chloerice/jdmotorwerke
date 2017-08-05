@@ -50,7 +50,7 @@ export const creatingCustomer = customer => dispatch => {
     type: 'confirmation',
     style: 'success',
     title: 'Submitted successfully!',
-    message: `Thank you for your inquiry, ${customer.name.split(' ')[0]}. I will do some research and be in touch within 2 business days.`,
+    message: `Thanks for your inquiry, ${customer.name.split(' ')[0]}. I'll do some market research and be in touch within 2 business days.`,
     signed: 'Jon Rice - Owner, JD Motorwerke',
     dismissable: true
   })))

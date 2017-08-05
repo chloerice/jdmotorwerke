@@ -4,7 +4,7 @@
 
 .alert {
   font-size: 1.25em;
-  border-color: none !important;
+  border: none !important;
 }
 
 .modal-content {
