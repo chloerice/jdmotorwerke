@@ -1,7 +1,7 @@
 import firebase from '../../../firebase'
 import { LOGGING_IN, LOGGING_OUT } from '../constants'
 import { authenticating } from './loading'
-import { receiveError } from './error'
+import { receiveAlert } from './alerts'
 
 export const logIn = user => ({
   user,
@@ -19,12 +19,24 @@ export const loggingIn = (email, password) => dispatch => {
   dispatch(authenticating())
   firebase.auth()
   .signInWithEmailAndPassword(email, password)
-  .catch(err => dispatch(receiveError(err)))
+  .catch(() => dispatch(receiveAlert({
+    type: 'error',
+    style: 'danger',
+    title: 'Wrong email or password',
+    message: 'Sorry, Jaaan, we\'re having trouble logging you in! Please double check your email and password and try again.',
+    dismissable: true
+  })))
 }
 
 export const loggingOut = () => dispatch => {
   firebase.auth()
   .signOut()
   .then(() => dispatch(logOut()))
-  .catch(err => dispatch(receiveError(err)))
+  .catch(() => dispatch(receiveAlert({
+    type: 'error',
+    style: 'danger',
+    title: 'Woopsie doopsie!',
+    message: 'Unable to log you out, please try again!',
+    dismissable: true
+  })))
 }

@@ -30,18 +30,26 @@ export default class ScrollAnimation extends Component {
       timeouts: [],
       hasAnimated: false
     }
-    if (window && window.addEventListener) {
-      window.addEventListener('scroll', throttle(this.handleScroll, 200))
-    }
   }
 
   componentDidMount () {
+    if (window && window.addEventListener) {
+      const that = this
+      const throttledHandleScroll = throttle(this.handleScroll, 500)
+      window.addEventListener('scroll', function listen () {
+        let shouldRemoveListener = that.state ? that.state.hasAnimated : false
+        if (shouldRemoveListener) {
+          return window.removeEventListener('scroll', listen)
+        }
+        throttledHandleScroll()
+      })
+    }
+
     if (!this.state.hasAnimated) {
       this.setState({
         elementBottom: this.node.getBoundingClientRect().bottom + ScrollAnimation.posTop(),
         elementTop: this.node.getBoundingClientRect().top + ScrollAnimation.posTop()
       }, this.handleScroll)
-      this.handleScroll()
     }
   }
 
@@ -53,22 +61,24 @@ export default class ScrollAnimation extends Component {
 
   handleScroll = () => {
     const visible = this.isVisible()
-    if (!visible.partially) {
-      this.state.timeouts.forEach(tid => clearTimeout(tid))
-    }
-    if (visible.completely !== (this.state.lastVisibility.completely) ||
-        visible.partially !== this.state.lastVisibility.partially) {
-      const style = this.getStyle(visible)
-      const classes = this.getClasses(visible)
-      if (visible.partially && !this.props.animateOnce) {
-        const timeout = setTimeout(() => {
-          this.setState({ classes, style, lastVisibility: visible })
-        }, this.props.delay)
-        const timeouts = this.state.timeouts.slice()
-        timeouts.push(timeout)
-        this.setState({ timeouts, hasAnimated: true })
-      } else {
-        if (!this.state.hasAnimated) {
+    if (this.props.animateOnce && this.state.hasAnimated === true) {
+      return
+    } else {
+      if (!visible.partially) {
+        this.state.timeouts.forEach(tid => clearTimeout(tid))
+      }
+      if (visible.completely !== (this.state.lastVisibility.completely) ||
+          visible.partially !== this.state.lastVisibility.partially) {
+        const style = this.getStyle(visible)
+        const classes = this.getClasses(visible)
+        if (visible.partially && !this.props.animateOnce) {
+          const timeout = setTimeout(() => {
+            this.setState({ classes, style, lastVisibility: visible })
+          }, this.props.delay)
+          const timeouts = this.state.timeouts.slice()
+          timeouts.push(timeout)
+          this.setState({ timeouts, hasAnimated: true })
+        } else if (!this.state.hasAnimated && this.props.animateOnce) {
           this.setState({ classes, style, lastVisibility: visible, hasAnimated: true })
         }
       }

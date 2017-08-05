@@ -2,6 +2,20 @@
 
 /* ------ Misc (App-wide) ------ */
 
+.alert {
+  font-size: 1.25em;
+  border-color: none !important;
+}
+
+.modal-content {
+  background: #DFF0D8;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: #3c763d;
+}
+
 .form-control {
   font-size: 16px;
 }
@@ -45,7 +59,7 @@ a {
 }
 
 .subtext {
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 
 /* ------ Navbar ------ */

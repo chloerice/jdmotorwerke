@@ -46,7 +46,7 @@ export default class Customers extends Component {
                     <td>{customer.email}</td>
                     <td>{customer.phone}</td>
                     <td>{customer.zipCode}</td>
-                    <td>{customer.yrMkModel}</td>
+                    <td>{customer.yrMkModelColor}</td>
                     <td>{customer.status}</td>
                     <td>{customer.message}</td>
                     <td>{this.mostRecentDate(customer)}</td>

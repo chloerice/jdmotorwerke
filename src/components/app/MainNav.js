@@ -35,10 +35,10 @@ class MainNav extends Component {
         <Navbar.Collapse>
           <Nav pullRight className='nav-main'>
             <li>
-              <HashLink to='/#About' onSelect={this.toggleMenuCollapse}>About</HashLink>
+              <HashLink to='/about' onSelect={this.toggleMenuCollapse}>About</HashLink>
             </li>
             <li>
-              <HashLink to='/#Inventory' onSelect={this.toggleMenuCollapse}>Inventory</HashLink>
+              <HashLink to='/inventory' onSelect={this.toggleMenuCollapse}>Inventory</HashLink>
             </li>
             <li onSelect={this.toggleMenuCollapse}>
               <HashLink to='/#Contact'>Contact</HashLink>

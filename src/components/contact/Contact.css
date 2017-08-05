@@ -1,7 +1,6 @@
 #Contact {
   min-height: 100vh;
-  color: #FFFFFF;
-  padding: 15px
+  color: #E5E5E5;
 }
 
 .Contact__header {
@@ -27,7 +26,7 @@
 @media only screen and (min-width: 600px) {
 
   .Contact__form {
-    padding: 30px 150px;
+    padding: 0 150px 30px;
   }
 
   .form-group {

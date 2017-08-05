@@ -3,14 +3,14 @@ import loading from './loadingReducer'
 import auth from './authReducer'
 import customers from './customersReducer'
 import cars from './carsReducer'
-import error from './errorReducer'
+import alert from './alertReducer'
 
 const rootReducer = combineReducers({
   loading,
   customers,
   cars,
   auth,
-  error
+  alert
 })
 
 export default rootReducer

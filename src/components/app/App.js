@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import Home from '../home/Home'
 import Dashboard from '../dashboard/Dashboard'
 import Login from '../login/Login'
-import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
 import './App.css'
 import Loading from '../utilities/LoadingAnimation'
 
@@ -14,10 +13,9 @@ const App = props => {
   return (
     <Router>
       <div className='App'>
-        <ScrollToTopOnMount />
         <Route render={({location, match, history}) => (
           <Switch location={location} key={location.key}>
-            <Loading isLoading={user && (customers.length === 0 || cars.length === 0) && loading}>
+            <Loading isLoading={user && ((customers.length === 0 || cars.length === 0) && loading)}>
               <Route
                 path='/dashboard/:action'
                 render={() => {

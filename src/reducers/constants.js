@@ -8,9 +8,9 @@ export const RECEIVE_CARS = 'RECEIVE_CARS'
 /* ----------- CUSTOMERS ------------ */
 export const RECEIVE_CUSTOMERS = 'RECEIVE_CUSTOMERS'
 
-/* ----------- ERRORS ------------ */
-export const RECEIVE_ERROR = 'RECEIVE_ERROR'
-export const DISMISS_ERROR = 'DISMISS_ERROR'
+/* ----------- ALERTS ------------ */
+export const RECEIVE_ALERT = 'RECEIVE_ALERT'
+export const DISMISS_ALERT = 'DISMISS_ALERT'
 
 /* ----------- LOADING ------------ */
 export const REQUEST_CARS = 'REQUEST_CARS'
