@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Row, Col, Nav } from 'react-bootstrap'
+import { Grid, Row, Col, Nav, Button, Glyphicon } from 'react-bootstrap'
 import { HashLink } from 'react-router-hash-link'
 import Services from '../services/Services'
 import Contact from '../contact/Contact'
@@ -57,7 +57,7 @@ class Home extends Component {
           {
             mainMobileMenu.map((link, i) => (
               <li
-                hidden={!this.state.showDashMenu}
+                hidden={!this.state.showMainMenu}
                 className='Dashboard__nav-item'
                 key={i}
                 onClick={this.toggleMainMenu}
@@ -71,10 +71,12 @@ class Home extends Component {
           <Row className='Home' style={{height: this.state.home}}>
             <Col xs={12} sm={12} md={12} lg={12}>
               <header className='Home__header'>
-                <h2 className='Home__heading'>{'Your dream car is out there.'}</h2>
-                <h2 className='Home__heading'>{'We\'ll help you find it.'}</h2>
+                <h2 className='Home__heading'>Your dream car is out there.</h2>
+                <h2 className='Home__heading'>We'll help you find it.</h2>
               </header>
             </Col>
+            <p className='sr-only'>Scroll down to learn more!</p>
+            <Glyphicon className='scrollDown animated pulse infinite' glyph='chevron-down' />
           </Row>
           <Services />
           <Contact />
