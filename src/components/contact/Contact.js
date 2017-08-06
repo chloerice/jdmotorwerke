@@ -105,10 +105,10 @@ class Contact extends Component {
           </header>
           <hr className='separator separator--white' />
           <p className='subtext'>
-            Having trouble finding the car you want with mileage that doesn't make you cringe?
+            Having trouble finding the car you want at a reasonable price without cringeworthy mileage?
           </p>
           <p className='subtext'>
-            Give us a call at (530) 238-5853 or fill out the form below.
+            We've got you covered. Give us a call at (530) 238-5853 or fill out the form below.
           </p>
           <form className='Contact__form' onSubmit={this.handleSubmit}>
             <Row>
