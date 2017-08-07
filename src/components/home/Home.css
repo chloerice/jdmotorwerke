@@ -38,6 +38,7 @@
 
   .scrollDown {
     top: 40vh;
+    padding-top: 0;
   }
 }
 
@@ -54,5 +55,9 @@
 @media only screen and (max-width: 320px) {
   .Home__heading {
     font-size: 2.25em !important;
+  }
+
+  .scrollDown {
+    top: 15vmin;
   }
 }
