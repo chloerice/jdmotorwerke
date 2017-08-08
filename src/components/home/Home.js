@@ -47,8 +47,12 @@ class Home extends Component {
     ]
 
     return (
-      <div className='Home__container'>
-        <MainNav brand={brandWhite} toggleMainMenu={this.toggleMainMenu} links={mainMobileMenu} />
+      <div className='Home__container fadeIn animated'>
+        <MainNav
+          brand={brandWhite}
+          toggleMainMenu={this.toggleMainMenu}
+          links={mainMobileMenu}
+        />
         <Nav
           className='Dashboard-menu-collapse gradient'
           style={menuCollapseStyle}

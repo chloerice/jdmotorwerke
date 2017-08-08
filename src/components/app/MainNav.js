@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
+import PropTypes from 'prop-types'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Glyphicon, Navbar, NavbarBrand, Nav, NavItem, Image, Col } from 'react-bootstrap'
 import './App.css'
 
 class MainNav extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      collapsed: true
-    }
-  }
-
   /*
     The .active class is being applied to '/' even when it isn't the current
     location.pathname because all other paths are its children. This method
@@ -51,7 +45,7 @@ class MainNav extends Component {
                 return link.hash
                   ? (
                     <li key={i}>
-                      <HashLink to={link.to} onSelect={this.toggleMenuCollapse}>
+                      <HashLink to={link.to} onSelect={toggleMainMenu}>
                         {link.text}
                       </HashLink>
                     </li>
@@ -59,7 +53,7 @@ class MainNav extends Component {
 
                   : (
                     <LinkContainer to={link.to} key={i} isActive={this.onlyOneActiveMatch}>
-                      <NavItem onSelect={this.toggleMenuCollapse}>
+                      <NavItem onSelect={toggleMainMenu}>
                         {link.text}
                       </NavItem>
                     </LinkContainer>
@@ -71,6 +65,13 @@ class MainNav extends Component {
       </Navbar>
     )
   }
+}
+
+MainNav.propTypes = {
+  black: PropTypes.bool,
+  toggleMainMenu: PropTypes.func,
+  brand: PropTypes.any, // this is the brand image imported by the parent component
+  links: PropTypes.array
 }
 
 export default withRouter(MainNav)

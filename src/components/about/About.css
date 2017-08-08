@@ -14,7 +14,7 @@
 .About__owner-image {
   float: left;
   position: relative;
-  top: 17vh;
+  top: 20vh;
   shape-outside: url('./ellipse.png');
   background-clip: content-box;
   height: auto;
