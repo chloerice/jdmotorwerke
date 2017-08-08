@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Row, Col, Navbar, Nav, Image } from 'react-bootstrap'
+import { Grid, Row, Col, Nav, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import MainNav from '../app/MainNav'
 import './About.css'
@@ -84,7 +84,7 @@ class About extends Component {
                 className='About__owner-image--mobile'
                 responsive
                 src={Jon}
-                alt='A photo of JD Motorwerke founder Jon Rice.'
+                alt='A photo of JD Motorwerke founder, Jon Rice.'
               />
             </Col>
             {/* DESKTOP/TABLET */}

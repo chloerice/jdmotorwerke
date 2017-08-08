@@ -55,7 +55,7 @@ class Dashboard extends Component {
       {to: '/dashboard/customers', glyph: 'user', text: 'Customers'}
     ]
 
-    const {user, cars, customers} = this.props
+    const {cars, customers} = this.props
     return (
       <Router>
         <Route render={({ location }) => (

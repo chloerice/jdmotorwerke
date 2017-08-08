@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Glyphicon, Navbar, NavbarBrand, Nav, NavItem, Image, Col } from 'react-bootstrap'

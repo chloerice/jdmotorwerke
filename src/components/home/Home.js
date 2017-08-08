@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Row, Col, Nav, Button, Glyphicon } from 'react-bootstrap'
+import { Grid, Row, Col, Nav, Glyphicon } from 'react-bootstrap'
 import { HashLink } from 'react-router-hash-link'
 import Services from '../services/Services'
 import Contact from '../contact/Contact'
