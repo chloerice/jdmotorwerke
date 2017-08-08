@@ -9,7 +9,7 @@ class Inventory extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      inventory: 'calc(100vh - 60px)',
+      inventory: 'inherit',
       showMainMenu: false,
       opacity: 0,
       height: 0,
@@ -22,8 +22,8 @@ class Inventory extends Component {
     if (event) event.preventDefault()
     this.setState({
       about: this.state.about === 'calc(100vh - 150px)'
-        ? 'calc(100vh - 60px)'
-        : 'calc(100vh - 105px)',
+        ? 'inherit'
+        : 'calc(100vh - 150px)',
       showMainMenu: !this.state.showMainMenu,
       height: this.state.height === '150px' ? '0' : '150px',
       padding: this.state.padding === '10px 0' ? '0' : '10px 0',
@@ -69,7 +69,7 @@ class Inventory extends Component {
           }
         </Nav>
         <Grid fluid>
-          <Row id='Inventory' style={{height: this.state.inventory}}>
+          <Row id='Inventory' style={{minHeight: this.state.inventory}}>
             <Col>
               <header className='Inventory__header'>
                 <h2>(INVENTORY)</h2>

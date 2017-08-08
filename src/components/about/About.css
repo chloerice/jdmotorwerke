@@ -1,10 +1,54 @@
 #About {
-  min-height: 100vh;
-  padding: 70px;
+  text-align: left;
+  color: #000000;
+}
+
+.About__owner {
+  padding: 0;
+}
+
+.About__owner--mobile {
+  padding: 0;
+}
+
+.About__owner-image {
+  float: left;
+  position: relative;
+  top: 17vh;
+  shape-outside: url('./ellipse.png');
+  background-clip: content-box;
+  height: auto;
+  width: auto;
+  min-width: 40vw;
+}
+
+.About__owner-image--mobile {
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 0;
 }
 
 .About__header {
-  text-align: center;
-  padding-top: 25px;
-  color: #000000;
+  font-size: 6vmax;
+  font-weight: 100;
+  position: relative;
+  padding-top: 10vh;
+}
+
+.About__header--mobile {
+  font-size: 4vmax;
+  font-weight: 100;
+}
+
+.About__owner-text {
+  font-size: 1.75vmax;
+  font-weight: 100;
+  position: relative;
+  padding-right: 20px;
+}
+
+.About__owner-text--mobile {
+  position: relative;
+  padding: 0 0 15px 0;
 }

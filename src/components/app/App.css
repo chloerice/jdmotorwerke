@@ -2,6 +2,10 @@
 
 /* ------ Misc (App-wide) ------ */
 
+.fadeIn {
+  animation-duration: .5s;
+}
+
 .alert {
   font-size: 1.25em;
   border: none !important;
@@ -21,7 +25,8 @@
 }
 
 .container-fluid {
-  min-height: 100vh;
+  min-height: calc(100vh - 75px);
+  position: relative;
 }
 
 a {
@@ -95,8 +100,11 @@ a {
 .navbar-default .navbar-nav>li:active a,
 .navbar-black .navbar-nav>li>a:hover,
 .navbar-black .navbar-nav>li>a:focus,
-.navbar-black .navbar-nav>li:active a {
-  color: #A83935;
+.navbar-black .navbar-nav>li:active a,
+.navbar-black .navbar-nav>.active>a,
+.navbar-black .navbar-nav>.active>a:focus,
+.navbar-black .navbar-nav>.active>a:hover {
+  color: #5A92C5;
   background: none;
   transition: all 0.1s ease-in-out;
   transition-duration: 0.2s;

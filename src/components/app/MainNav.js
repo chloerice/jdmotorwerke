@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Glyphicon, Navbar, NavbarBrand, Nav, Image, Col } from 'react-bootstrap'
+import { Glyphicon, Navbar, NavbarBrand, Nav, NavItem, Image, Col } from 'react-bootstrap'
 import './App.css'
 
 class MainNav extends Component {
@@ -11,6 +11,15 @@ class MainNav extends Component {
     this.state = {
       collapsed: true
     }
+  }
+
+  /*
+    The .active class is being applied to '/' even when it isn't the current
+    location.pathname because all other paths are its children. This method
+    corrects for that.
+  */
+  onlyOneActiveMatch = (match, location) => {
+    if (match) return location.pathname === match.path
   }
 
   render () {
@@ -49,11 +58,11 @@ class MainNav extends Component {
                   )
 
                   : (
-                    <li key={i}>
-                      <Link to={link.to} onSelect={this.toggleMenuCollapse}>
+                    <LinkContainer to={link.to} key={i} isActive={this.onlyOneActiveMatch}>
+                      <NavItem onSelect={this.toggleMenuCollapse}>
                         {link.text}
-                      </Link>
-                    </li>
+                      </NavItem>
+                    </LinkContainer>
                   )
               })
             }
