@@ -15,7 +15,11 @@ const MenuCollapse = props => (
         return link.hash
           ? (
             <li key={i} className='Dashboard__nav-item'>
-              <HashLink to={link.to} onSelect={props.toggleMainMenu}>
+              <HashLink
+                to={link.to}
+                style={{display: props.display}}
+                onSelect={props.toggleMainMenu}
+              >
                 {link.text}
               </HashLink>
             </li>

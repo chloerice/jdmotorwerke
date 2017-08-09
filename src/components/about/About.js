@@ -58,33 +58,28 @@ class About extends Component {
         />
         <Grid id='About' className='fadeIn animated' fluid>
           <Row>
-            {/* MOBILE */}
-            <Col xs={12} smHidden mdHidden lgHidden>
-              <h2 className='About__header--mobile'>About the Owner</h2>
-              <p className='About__owner-text--mobile'>
+            <Col xs={12} sm={6} smPush={6} md={7} mdPush={5} lg={7} lgPush={5}>
+              <h2 className='About__header'>About the Owner</h2>
+              <p className='About__owner-text'>
                 Jon D. Rice founded JD Motorwerke in the fall of 2016. A vet of America's auto parts capital--California's Recycle Rd--he's got almost a decade of automotive industry experience servicing, dismantling, and selling European cars.  His passions include travelling with the love of his life, Kylee, and rare BMWs.
               </p>
             </Col>
-            <Col className='About__owner--mobile' xs={12} smHidden mdHidden lgHidden>
-              <Image
-                className='About__owner-image--mobile'
-                responsive
-                src={Jon}
-                alt='A photo of JD Motorwerke founder, Jon Rice.'
-              />
-            </Col>
-            {/* DESKTOP/TABLET */}
-            <Col className='About__owner' xsHidden sm={12} md={12} lg={12}>
+            <Col
+              className='About__owner-image-container'
+              xs={12}
+              sm={6}
+              smPull={6}
+              md={5}
+              mdPull={7}
+              lg={5}
+              lgPull={7}
+            >
               <Image
                 className='About__owner-image'
                 responsive
                 src={Jon}
-                alt='A photo of JD Motorwerke founder Jon Rice.'
+                alt='A photo of JD Motorwerke founder, Jon Rice.'
               />
-              <h2 className='About__header'>About the Owner</h2>
-              <p className='About__owner-text'>
-                Jon D. Rice founded JD Motorwerke in the fall of 2016. A vet of America's auto parts capital--California's Recycle Rd--he's got almost a decade of automotive industry experience servicing, dismantling, and selling European cars. His passions include travelling with the love of his life, Kylee, and rare BMWs.
-              </p>
             </Col>
           </Row>
         </Grid>

@@ -3,52 +3,43 @@
   color: #000000;
 }
 
-.About__owner {
-  padding: 0;
-}
-
-.About__owner--mobile {
+.About__owner-image-container {
   padding: 0;
 }
 
 .About__owner-image {
-  float: left;
-  position: relative;
-  top: 20vh;
-  shape-outside: url('./ellipse.png');
-  background-clip: content-box;
-  height: auto;
-  width: auto;
-  min-width: 40vw;
-}
-
-.About__owner-image--mobile {
   position: relative;
   height: auto;
   width: 100%;
-  padding: 0;
 }
 
 .About__header {
-  font-size: 6vmax;
-  font-weight: 100;
-  position: relative;
-  padding-top: 10vh;
-}
-
-.About__header--mobile {
   font-size: 4vmax;
   font-weight: 100;
+  position: relative;
 }
 
 .About__owner-text {
-  font-size: 1.75vmax;
   font-weight: 100;
   position: relative;
-  padding-right: 20px;
+  padding: 0 0 15px 0;
 }
 
-.About__owner-text--mobile {
-  position: relative;
-  padding: 0 0 15px 0;
+@media only screen and (min-width: 768px) {
+  .About__owner-image {
+    position: fixed;
+    bottom: 0;
+    width: auto;
+    min-width: 40vw;
+  }
+
+  .About__header {
+    font-size: 6vmax;
+    padding-top: 14vh;
+  }
+
+  .About__owner-text {
+    padding: 0 25px 20px 0;
+    font-size: 1.75vmax;
+  }
 }
