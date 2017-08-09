@@ -43,3 +43,10 @@
     font-size: 1.75vmax;
   }
 }
+
+/* iPhone <=5 font fix */
+@media only screen and (max-width: 320px) {
+  .About__owner-text {
+    font-size: .75em;
+  }
+}
