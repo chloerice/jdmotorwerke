@@ -61,7 +61,7 @@ class About extends Component {
             <Col xs={12} sm={6} smPush={6} md={7} mdPush={5} lg={7} lgPush={5}>
               <h2 className='About__header'>About the Owner</h2>
               <p className='About__owner-text'>
-                Jon D. Rice founded JD Motorwerke in the fall of 2016. A vet of America's auto parts capital--California's Recycle Rd--he's got almost a decade of automotive industry experience servicing, dismantling, and selling European cars. For years he has used his expertise and resources to save family and friends the time, money and stress that's usually incurred while purchasing a car. Jon believes everyone should have access to an auto insider and is thrilled to extend this service to the broader community of car buyers. When he's not hunting down deals for his clients, he enjoys travelling with the love of his life, Kylee, and restoring rare BMWs.
+                Jon D. Rice founded JD Motorwerke in the fall of 2016. A vet of America's auto parts capital--California's Recycle Rd--he's got almost a decade of automotive industry experience servicing, dismantling, and selling European cars. For years he's used his expertise and resources to save family and friends the time, money and stress involved in purchasing from a car lot. Jon believes everyone should have access to an auto insider and is thrilled to extend this service to the broader community of car buyers. When he's not hunting down deals for his clients, he enjoys travelling with the love of his life, Kylee, and restoring rare BMWs.
               </p>
             </Col>
             <Col
