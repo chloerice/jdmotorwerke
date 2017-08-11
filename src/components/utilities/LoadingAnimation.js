@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Modal } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 class Loading extends Component {
@@ -9,7 +10,8 @@ class Loading extends Component {
       position: 'relative',
       margin: '0px auto',
       width: '100px',
-      height: '100px'
+      height: '100px',
+      zIndex: 5
     }
 
     const svgStyle = {
@@ -18,7 +20,7 @@ class Loading extends Component {
       transformOrigin: 'center center',
       width: '100%',
       position: 'absolute',
-      top: '50vh',
+      top: '10vh',
       bottom: 0,
       left: 0,
       right: 0,
@@ -78,17 +80,28 @@ class Loading extends Component {
         component,
         { style: Object.assign({}, loadingStyle, style) },
         <style>{animation}</style>,
-        <svg style={svgStyle} viewBox='25 25 50 50'>
-          <circle
-            style={circleStyle}
-            cx='50'
-            cy='50'
-            r='20'
-            fill='none'
-            strokeWidth='7'
-            strokeMiterlimit='10'
-          />
-        </svg>
+        <div
+          className='container-fluid'
+          style={{
+            height: '100vh',
+            width: '100%',
+            background: '#FFFFFF',
+            opacity: isLoading ? '1' : '0',
+            transition: 'opacity .5s ease-out'
+          }}
+        >
+          <svg style={svgStyle} viewBox='25 25 50 50'>
+            <circle
+              style={circleStyle}
+              cx='50'
+              cy='50'
+              r='20'
+              fill='none'
+              strokeWidth='7'
+              strokeMiterlimit='10'
+            />
+          </svg>
+        </div>
       )
     } else {
       return React.createElement(component, { className }, children || null)

@@ -39,7 +39,7 @@ class About extends Component {
     const mainMobileMenu = [
       {to: '/', text: 'Home'},
       {to: '/about', text: 'About'},
-      {to: '/inventory', text: 'Inventory'},
+      {to: '/used-cars-for-sale', text: 'Inventory'},
       {to: '/#Contact', text: 'Contact', hash: true}
     ]
     let display = this.state.height === '0' ? 'none' : 'block'

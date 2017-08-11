@@ -1,9 +1,115 @@
-#Inventory {
-  padding: 75px 15px;
+/* ---- INVENTORY  ---- */
+.Inventory {
+  padding: 25px 45px;
+  text-align: left;
 }
 
 .Inventory__header {
   text-align: center;
-  padding-top: 25px;
+  font-size: 2em;
+  padding: 15px 0;
+  margin: 0;
   color: #000000;
+}
+
+.Inventory__list {
+  padding: 0;
+}
+
+/* - INVENTORY CARDS - */
+.thumbnail {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.thumbnail .caption {
+  padding: 15px;
+}
+
+.InventoryCard {
+  text-align: center;
+  border: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  padding: 0;
+}
+
+ /* height hack: padding as a percent is calculated as a % of the width */
+.img-placeholder {
+  width: inherit;
+  height: auto;
+  padding-top: 69.3%;
+  background: #E4E4E4;
+}
+
+.InventoryCard__image {
+  transition: opacity .25s ease-in;
+  position: absolute;
+  top: 0
+}
+
+.sold-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: calc(69.3% - 168px);
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5)
+}
+
+.sold-overlay__text {
+  font-size: 5em;
+  font-weight: bolder;
+  color: #BADA55;
+  margin: 0;
+  padding-bottom: 80px;
+}
+
+.InventoryCard__header {
+  margin: 10px 0;
+}
+
+.InventoryCard__specs p {
+  text-align: left;
+  padding: 0 0 0 17%;
+}
+
+.InventoryCard__features {
+  margin: auto;
+  padding: 0;
+}
+
+.InventoryCard__features .panel {
+  margin-bottom: -15px;
+  width: inherit;
+  border-radius: 0;
+  border: none;
+}
+
+.InventoryCard__features .panel-heading {
+  text-align: center;
+  padding: 10px;
+}
+
+.InventoryCard__features .panel-body {
+  text-align: left;
+  color: #909090;
+  font-size: 14px;
+  border-color: none;
+  padding: 10px;
+}
+
+@media only screen and (min-width: 767px) {
+  .Inventory__header {
+    font-size: 2.5em;
+    text-align: left;
+    padding: 25px 30px 10px;
+  }
+
+  .Inventory__list {
+    padding: 25px 50px;
+  }
 }

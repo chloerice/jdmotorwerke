@@ -1,5 +1,5 @@
-import { RECEIVE_CARS } from '../constants'
-import { requestCars, updateCar, listNewCar } from './loading'
+import { RECEIVE_CARS, RECEIVE_CAR } from '../constants'
+import { requestCars, requestCar, updateCar, listNewCar } from './loading'
 import { receiveAlert } from './alerts'
 import { readDataOnce, writeData, updateData } from './database'
 import firebase from '../../../firebase'
@@ -13,16 +13,22 @@ export const receiveCars = cars => ({
   type: RECEIVE_CARS
 })
 
+export const receiveCar = car => ({
+  car,
+  loading: false,
+  type: RECEIVE_CAR
+})
+
 /* -------- ASYNC ACTION(S) -------- */
-export const requestingCarsOnce = () => dispatch => {
-  dispatch(requestCars())
-  return readDataOnce('/Cars')
-  .then(cars => dispatch(receiveCars(cars)))
+export const requestingCar = key => dispatch => {
+  dispatch(requestCar())
+  return readDataOnce('Cars', key)
+  .then(car => dispatch(receiveCar(car)))
   .catch(() => receiveAlert({
     type: 'error',
     style: 'danger',
     title: 'No dice!',
-    message: 'Sorry, Jaaan, we\'re having trouble fetching the car data. Hit up Chlaaaaa!',
+    message: 'Sorry, Jaaan, we\'re having trouble fetching that car\'s data. Hit up Chlaaaaa!',
     dismissable: true
   }))
 }

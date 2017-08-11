@@ -5,10 +5,13 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import MainNav from '../app/MainNav'
 import MenuCollapse from '../app/MenuCollapse'
+import InventoryList from './InventoryList'
 import './Inventory.css'
 import brandBlack from '../dashboard/jdmotorwerke-logo.png'
+import { requestingCars } from '../../reducers/actions/cars'
 
 class Inventory extends Component {
+
   constructor (props) {
     super(props)
     this.state = {
@@ -17,6 +20,19 @@ class Inventory extends Component {
       height: '0',
       padding: '0',
       marginBottom: '0'
+    }
+    this.removeCarListener = null
+  }
+
+  componentDidMount () {
+    if (!this.removeCarListener) {
+      this.removeCarListener = this.props.getInventory()
+    }
+  }
+
+  componentWillUnmount () {
+    if (this.removeCarListener) {
+      this.removeCarListener()
     }
   }
 
@@ -41,10 +57,12 @@ class Inventory extends Component {
     const mainMobileMenu = [
       {to: '/', text: 'Home'},
       {to: '/about', text: 'About'},
-      {to: '/inventory', text: 'Inventory'},
+      {to: '/used-cars-for-sale', text: 'Inventory'},
       {to: '/#Contact', text: 'Contact', hash: true}
     ]
     let display = this.state.height === '0' ? 'none' : 'block'
+    let {cars} = this.props
+    cars = cars.filter(car => car.status !== 'requires parts/service')
     return (
       <div>
         <MainNav
@@ -60,12 +78,13 @@ class Inventory extends Component {
         />
         <Grid id='Inventory' className='fadeIn animated' fluid>
           <Row>
-            <Col>
-              <header className='Inventory__header'>
-                <h2>(INVENTORY)</h2>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <header>
+                <h1 className='Inventory__header'>Used Cars For Sale</h1>
               </header>
             </Col>
           </Row>
+          <InventoryList cars={cars} />
         </Grid>
       </div>
     )
@@ -73,11 +92,17 @@ class Inventory extends Component {
 }
 
 Inventory.propTypes = {
-  cars: PropTypes.array
+  cars: PropTypes.arrayOf(PropTypes.object),
+  getInventory: PropTypes.func,
+  loading: PropTypes.bool
 }
 
 const mapStateToProps = state => ({
-  cars: state.cars.all
+  cars: state.cars
 })
 
-export default withRouter(connect(mapStateToProps)(Inventory))
+const mapDispatchToProps = dispatch => ({
+  getInventory: () => dispatch(requestingCars())
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Inventory))
