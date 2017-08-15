@@ -16,7 +16,9 @@ const InventoryCard = props => {
         src={car.images.featured}
         alt={`A photo of a ${color} ${yrMkModel} ${status} by JD Motorwerke.`}
       />
-      { status === 'sold' && <div className='sold-overlay' /> }
+      <div className='overlay'>
+        {status === 'sold' && <h1 className='sold'>SOLD</h1>}
+      </div>
       <div className='InventoryCard__text'>
         <h2 className='InventoryCard__model'>{yrMkModel}</h2>
         <div className='InventoryCard__text-right'>

@@ -6,7 +6,8 @@
 
 .Inventory__header {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.75em;
+  font-weight: bolder;
   padding: 15px 0;
   margin: 0;
   color: #000000;
@@ -15,7 +16,7 @@
 /* - INVENTORY CARDS - */
 
 .InventoryCard {
-  padding: 0;
+  padding: 10px;
 }
 
 /* height hack: padding as a percent is calculated as a % of the width */
@@ -31,7 +32,7 @@
   top: 0;
 }
 
-.sold-overlay {
+.overlay {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,18 +41,14 @@
   height: 100%;
   position: absolute;
   top: 0;
-  z-index: 3;
+  z-index: 5;
   background: rgba(0, 0, 0, 0.5)
 }
 
-.sold-overlay::after {
-  position: absolute;
-  top: 0;
+.sold {
   font-size: 5em;
-  content: "SOLD";
   font-weight: bolder;
   color: #BADA55;
-  margin-top: 20%;
 }
 
 .InventoryCard__text {
@@ -65,7 +62,7 @@
   text-shadow: 1px 1px #000000;
   position: absolute;
   top: 0;
-  z-index: 3;
+  z-index: 10;
 }
 
 .InventoryCard__text-right {
@@ -98,7 +95,7 @@
   .Inventory__header {
     font-size: 4vmax;
     text-align: left;
-    font-weight: bold;
+    font-weight: bolder;
     padding: 25px 30px 10px;
   }
 
@@ -108,10 +105,6 @@
 
   .InventoryCard {
     padding: 15px;
-  }
-
-  .sold-overlay::after {
-    margin-top: 25%;
   }
 
   .InventoryCard__price {
