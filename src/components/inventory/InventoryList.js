@@ -23,13 +23,13 @@ export default class InventoryList extends Component {
     const {cars} = this.props
 
     return (
-      <Row ref='inventory' className='Inventory__list'>
+      <Row ref='inventory' className='InventoryList'>
         {cars && cars.map((car, i) => {
           const {year, make, model, color, id, status} = car
           const yrMkModel = `${year} ${make} ${model}`
           const url = yrMkModel.toLowerCase().split(' ').join('-')
           return (
-            <Col className='InventoryCard' key={i} xs={12} sm={6} md={4} lg={4}>
+            <Col className='InventoryCard' key={i} xs={12} sm={6} md={6} lg={6}>
               {
                 status === 'sold'
                   ? (

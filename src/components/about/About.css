@@ -14,8 +14,8 @@
 }
 
 .About__header {
-  font-size: 4vmax;
-  font-weight: 100;
+  font-size: 3vmax;
+  font-weight: bold;
   position: relative;
 }
 
@@ -34,7 +34,7 @@
   }
 
   .About__header {
-    font-size: 6vmax;
+    font-size: 4.5vmax;
     padding-top: 14vh;
   }
 

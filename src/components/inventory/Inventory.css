@@ -12,32 +12,15 @@
   color: #000000;
 }
 
-.Inventory__list {
-  padding: 0;
-}
-
 /* - INVENTORY CARDS - */
-.thumbnail {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-.thumbnail .caption {
-  padding: 15px;
-}
 
 .InventoryCard {
-  text-align: center;
-  border: none;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   padding: 0;
 }
 
- /* height hack: padding as a percent is calculated as a % of the width */
+/* height hack: padding as a percent is calculated as a % of the width */
 .img-placeholder {
-  width: inherit;
-  height: auto;
+  position: relative;
   padding-top: 69.3%;
   background: #E4E4E4;
 }
@@ -45,71 +28,101 @@
 .InventoryCard__image {
   transition: opacity .25s ease-in;
   position: absolute;
-  top: 0
+  top: 0;
 }
 
 .sold-overlay {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
-  padding-top: calc(69.3% - 168px);
+  height: 100%;
   position: absolute;
   top: 0;
-  z-index: 5;
+  z-index: 3;
   background: rgba(0, 0, 0, 0.5)
 }
 
-.sold-overlay__text {
+.sold-overlay::after {
+  position: absolute;
+  top: 0;
   font-size: 5em;
+  content: "SOLD";
   font-weight: bolder;
   color: #BADA55;
+  margin-top: 20%;
+}
+
+.InventoryCard__text {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  color: #FFFFFF;
+  text-shadow: 1px 1px #000000;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+.InventoryCard__text-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.InventoryCard__price {
+  font-size: 1.25em;
+  font-weight: 100;
+  padding: 0 10px 5px 0;
   margin: 0;
-  padding-bottom: 80px;
 }
 
-.InventoryCard__header {
-  margin: 10px 0;
+.InventoryCard__miles {
+  font-size: .75em;
+  font-style: italic;
+  padding-right: 10px;
 }
 
-.InventoryCard__specs p {
-  text-align: left;
-  padding: 0 0 0 17%;
+.InventoryCard__model {
+  font-size: 1.5em;
+  align-self: flex-end;
+  padding: 0 10px;
 }
 
-.InventoryCard__features {
-  margin: auto;
-  padding: 0;
-}
-
-.InventoryCard__features .panel {
-  margin-bottom: -15px;
-  width: inherit;
-  border-radius: 0;
-  border: none;
-}
-
-.InventoryCard__features .panel-heading {
-  text-align: center;
-  padding: 10px;
-}
-
-.InventoryCard__features .panel-body {
-  text-align: left;
-  color: #909090;
-  font-size: 14px;
-  border-color: none;
-  padding: 10px;
-}
-
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 900px) {
   .Inventory__header {
-    font-size: 2.5em;
+    font-size: 4vmax;
     text-align: left;
+    font-weight: bold;
     padding: 25px 30px 10px;
   }
 
-  .Inventory__list {
-    padding: 25px 50px;
+  .InventoryList {
+    padding: 15px;
+  }
+
+  .InventoryCard {
+    padding: 15px;
+  }
+
+  .sold-overlay::after {
+    margin-top: 25%;
+  }
+
+  .InventoryCard__price {
+    font-size: 2em;
+  }
+
+  .InventoryCard__miles {
+    font-size: 1em;
+  }
+
+  .InventoryCard__model {
+    font-size: 2em;
   }
 }

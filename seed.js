@@ -110,9 +110,9 @@ const cars = [
       ]
     },
     images: {
-      featured: 'gs://jdmotorwerke.appspot.com/cars/2T3BF4DV6CW240237/2012-Toyota-Rav4-Black.jpg',
+      featured: 'https://firebasestorage.googleapis.com/v0/b/jdmotorwerke.appspot.com/o/cars%2F2T3BF4DV6CW240237%2F2012-Toyota-Rav4-Black.jpg?alt=media&token=669559da-20cb-4b5f-be05-ad59e93b3b6a',
       all: [
-        'gs://jdmotorwerke.appspot.com/cars/2T3BF4DV6CW240237/2012-Toyota-Rav4-Black.jpg'
+        'https://firebasestorage.googleapis.com/v0/b/jdmotorwerke.appspot.com/o/cars%2F2T3BF4DV6CW240237%2F2012-Toyota-Rav4-Black.jpg?alt=media&token=669559da-20cb-4b5f-be05-ad59e93b3b6a'
       ]
     },
     VIN: 'W1234567890123457',
