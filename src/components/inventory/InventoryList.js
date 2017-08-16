@@ -25,34 +25,22 @@ export default class InventoryList extends Component {
     return (
       <Row ref='inventory' className='InventoryList'>
         {cars && cars.map((car, i) => {
-          const {year, make, model, color, id, status} = car
+          const {year, make, model, color, id} = car
+          const sold = car.status === 'sold'
           const yrMkModel = `${year} ${make} ${model}`
-          const url = yrMkModel.toLowerCase().split(' ').join('-')
+          const url = `/used-cars-for-sale/${yrMkModel.toLowerCase().split(' ').join('-')}/${id}`
+          const card = (
+            <InventoryCard
+              car={car}
+              color={color}
+              yrMkModel={yrMkModel}
+              opacity={opacity}
+              handleOnLoad={this.handleOnLoad}
+            />
+          )
           return (
             <Col className='InventoryCard' key={i} xs={12} sm={6} md={6} lg={6}>
-              {
-                status === 'sold'
-                  ? (
-                    <InventoryCard
-                      car={car}
-                      color={color}
-                      yrMkModel={yrMkModel}
-                      opacity={opacity}
-                      handleOnLoad={this.handleOnLoad}
-                    />
-                  )
-                  : (
-                    <Link to={`/used-cars-for-sale/${url}/${id}`}>
-                      <InventoryCard
-                        car={car}
-                        color={color}
-                        yrMkModel={yrMkModel}
-                        opacity={opacity}
-                        handleOnLoad={this.handleOnLoad}
-                      />
-                    </Link>
-                  )
-              }
+              {sold ? card : <Link to={url}>{card}</Link>}
             </Col>
           )
         })}

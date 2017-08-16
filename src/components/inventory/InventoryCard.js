@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const InventoryCard = props => {
   const {car, yrMkModel, color, handleOnLoad, opacity} = props
-  const {status} = car
+  const sold = car.status === 'sold'
 
   return (
     <div className='img-placeholder'>
@@ -17,14 +17,14 @@ const InventoryCard = props => {
         alt={`A photo of a ${color} ${yrMkModel} ${status} by JD Motorwerke.`}
       />
       <div className='overlay'>
-        {status === 'sold' && <h1 className='sold'>SOLD</h1>}
+        {sold && <h1 className='sold'>SOLD</h1>}
       </div>
       <div className='InventoryCard__text'>
         <h2 className='InventoryCard__model'>{yrMkModel}</h2>
         <div className='InventoryCard__text-right'>
           <p className='InventoryCard__miles'>{`${car.mileage} miles`}</p>
           <p className='InventoryCard__price'>
-            {status === 'sold' ? car.soldPrice : car.sellingPrice}
+            {sold ? car.soldPrice : car.sellingPrice}
           </p>
         </div>
       </div>
@@ -35,7 +35,7 @@ const InventoryCard = props => {
 InventoryCard.propTypes = {
   car: PropTypes.object,
   handleOnLoad: PropTypes.func,
-  opacity: PropTypes.string,
+  opacity: PropTypes.number,
   yrMkModel: PropTypes.string,
   color: PropTypes.string
 }
