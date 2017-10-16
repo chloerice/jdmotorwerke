@@ -35,7 +35,7 @@ export default class ManageInventory extends Component {
           <tbody>
             {
               cars.map((car, i) => {
-                const yrMkModelColor = `${car.year} ${car.make} ${car.model}, ${car.color}`
+                const yrMkModelColor = `${car.year} ${car.make} ${car.model}, ${car.specs.exterior.color}`
                 return (
                   <tr key={i}>
                     <td>

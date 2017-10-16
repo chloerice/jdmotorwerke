@@ -45,15 +45,15 @@ const App = props => {
               render={() => {
                 if (!user) return <Redirect to='/login' />
                 return <Dashboard />
-              }
-            } />
+              }}
+            />
             <Route
               path='/dashboard/:action/:id'
               render={() => {
                 if (!user) return <Redirect to='/login' />
                 return <Dashboard />
-              }
-            } />
+              }}
+            />
             {/* PUBLIC ROUTES */}
             <Route exact strict path='/' component={Home} />
             <Route exact path='/login' component={Login} />

@@ -17,19 +17,30 @@
 
 .InventoryCard {
   padding: 10px;
+  border-radius: 3px;
 }
 
-/* height hack: padding as a percent is calculated as a % of the width */
+.InventoryCard:not(.InventoryCard__sold) {
+  transition: all .25s ease-in-out;
+}
+
+.InventoryCard:not(.InventoryCard__sold):hover {
+  transform: scale(.99);
+}
+
 .img-placeholder {
   position: relative;
-  padding-top: 69.3%;
+  width: 100%;
   background: #E4E4E4;
+  transition: box-shadow .2s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .InventoryCard__image {
   transition: opacity .25s ease-in;
-  position: absolute;
-  top: 0;
+  height: inherit;
+  object-fit: cover;
+  object-position: center;
 }
 
 .overlay {
@@ -91,20 +102,26 @@
   padding: 0 10px;
 }
 
-@media only screen and (min-width: 900px) {
-  .Inventory__header {
-    font-size: 4vmax;
-    text-align: left;
-    font-weight: bolder;
-    padding: 25px 35px 10px;
-  }
-
+@media only screen and (min-width: 768px) {
   .InventoryList {
     padding: 15px 40px;
   }
 
   .InventoryCard {
     padding: 15px;
+  }
+
+  .img-placeholder {
+    height: calc(calc(50vw - 70px) * .75);
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .Inventory__header {
+    font-size: 4vmax;
+    text-align: left;
+    font-weight: bolder;
+    padding: 25px 35px 10px;
   }
 
   .InventoryCard__price {

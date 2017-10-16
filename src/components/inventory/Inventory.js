@@ -63,13 +63,13 @@ class Inventory extends Component {
     let display = this.state.height === '0' ? 'none' : 'block'
     let {cars} = this.props
     cars = cars
-    .filter(car => car.status !== 'requires parts/service')
-    .sort((a, b) => Date.parse(a.updatedAt) - Date.parse(b.updatedAt))
-    .sort((a, b) => {
-      if (a.status === 'for sale') return -1
-      else if (b.status === 'for sale') return 1
-      else return 0
-    })
+      .filter(car => car.status !== 'requires parts/service')
+      .sort((a, b) => Date.parse(a.updatedAt) - Date.parse(b.updatedAt))
+      .sort((a, b) => {
+        if (a.status === 'for sale') return -1
+        else if (b.status === 'for sale') return 1
+        else return 0
+      })
 
     return (
       <div>

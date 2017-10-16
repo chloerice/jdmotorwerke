@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Modal } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 class Loading extends Component {
@@ -20,8 +19,8 @@ class Loading extends Component {
       transformOrigin: 'center center',
       width: '100%',
       position: 'absolute',
-      top: '10vh',
-      bottom: 0,
+      top: 0,
+      bottom: '15vh',
       left: 0,
       right: 0,
       margin: 'auto'
@@ -85,7 +84,6 @@ class Loading extends Component {
           style={{
             height: '100vh',
             width: '100%',
-            background: '#FFFFFF',
             opacity: isLoading ? '1' : '0',
             transition: 'opacity .5s ease-out'
           }}

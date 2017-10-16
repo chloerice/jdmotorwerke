@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Grid, Row, Col, Carousel, Image } from 'react-bootstrap'
+import { Grid, Row, Col, Carousel, Image, Table } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import MainNav from '../app/MainNav'
 import MenuCollapse from '../app/MenuCollapse'
 import brandBlack from '../dashboard/jdmotorwerke-logo.png'
 import { requestingCar, receiveCar } from '../../reducers/actions/cars'
+import Loading from '../utilities/LoadingAnimation'
 import './CarDetail.css'
 
 class CarDetail extends Component {
@@ -41,6 +42,12 @@ class CarDetail extends Component {
     })
   }
 
+  toCapital = (word) => {
+    const firstLetter = word.substr(0, 1).toUpperCase()
+    const substring = word.substring(1)
+    return `${firstLetter}${substring}`
+  }
+
   render () {
     const menuCollapseStyle = {
       padding: this.state.padding,
@@ -57,11 +64,6 @@ class CarDetail extends Component {
     ]
     let display = this.state.height === '0' ? 'none' : 'block'
     const {car} = this.props
-    let yrMkModel
-    if (car) {
-      const {year, make, model, sellingPrice, specs} = car
-      yrMkModel = `${year} ${make} ${model}`
-    }
 
     return (
       <div>
@@ -77,21 +79,79 @@ class CarDetail extends Component {
           links={mainMobileMenu}
         />
         <Grid fluid>
-          <Row className='CarDetail'>
-            <Col xs={12} sm={12} md={8} lg={8}>
-              <Carousel className='fadeIn' interval={null}>
-                {car && car.images.all.map((pic, i) => (
-                  <Carousel.Item key={i}>
-                    <Image
-                      responsive
-                      src={pic}
-                      alt={`a photo of the ${yrMkModel} for sale by JD Motorwerke`}
-                    />
-                  </Carousel.Item>
-                ))}
-              </Carousel>
+          {!car && <Loading />}
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              {car && (
+                <h1 className='Inventory__header'>
+                  {`${car.year} ${car.make} ${car.model} ${car.sellingPrice}`}
+                </h1>
+              )}
             </Col>
           </Row>
+          {car && (
+            <Row className='CarDetail'>
+              <Col xs={12} sm={12} md={7} lg={7}>
+                <Carousel className='fadeIn' interval={null}>
+                  {car && car.images.all.map((pic, i) => (
+                    <Carousel.Item key={i}>
+                      <Image
+                        responsive
+                        src={pic}
+                        alt={`a photo of the ${car.year} ${car.make} ${car.model} for sale by JD Motorwerke`}
+                      />
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </Col>
+              <Col xs={12} sm={12} md={5} lg={5}>
+                <Table striped bordered>
+                  <tbody>
+                    <tr>
+                      <td>Title status</td>
+                      <td>{car.title}</td>
+                    </tr>
+                    <tr>
+                      <td>Mileage</td>
+                      <td>{car.mileage}</td>
+                    </tr>
+                    <tr>
+                      <td>Drivetrain</td>
+                      <td>{car.specs.drivetrain}</td>
+                    </tr>
+                    <tr>
+                      <td>Engine</td>
+                      <td>{car.specs.engine}</td>
+                    </tr>
+                    <tr>
+                      <td>Transmission</td>
+                      <td>{car.specs.transmission}</td>
+                    </tr>
+                    <tr>
+                      <td>Fuel type</td>
+                      <td>{this.toCapital(car.specs.fuelType)}</td>
+                    </tr>
+                    <tr>
+                      <td>Fuel economy</td>
+                      <td>{car.specs.fuelEconomy}</td>
+                    </tr>
+                    <tr>
+                      <td>Exterior</td>
+                      <td>{`${car.specs.exterior.color} ${car.specs.exterior.finish}`}</td>
+                    </tr>
+                    <tr>
+                      <td>Interior</td>
+                      <td>{`${car.specs.interior.color} ${car.specs.interior.fabrication}`}</td>
+                    </tr>
+                    <tr>
+                      <td>Features</td>
+                      <td>{car.specs.features}</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          )}
         </Grid>
       </div>
     )

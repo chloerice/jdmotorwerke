@@ -6,7 +6,6 @@ import InventoryCard from './InventoryCard'
 import './Inventory.css'
 
 export default class InventoryList extends Component {
-
   constructor (props) {
     super(props)
     this.state = {
@@ -24,26 +23,28 @@ export default class InventoryList extends Component {
 
     return (
       <Row ref='inventory' className='InventoryList'>
-        {cars && cars.map((car, i) => {
-          const {year, make, model, color, id} = car
-          const sold = car.status === 'sold'
-          const yrMkModel = `${year} ${make} ${model}`
-          const url = `/used-cars-for-sale/${yrMkModel.toLowerCase().split(' ').join('-')}/${id}`
-          const card = (
-            <InventoryCard
-              car={car}
-              color={color}
-              yrMkModel={yrMkModel}
-              opacity={opacity}
-              handleOnLoad={this.handleOnLoad}
-            />
-          )
-          return (
-            <Col className='InventoryCard' key={i} xs={12} sm={6} md={6} lg={6}>
-              {sold ? card : <Link to={url}>{card}</Link>}
-            </Col>
-          )
-        })}
+        {cars && cars
+          .filter(c => (c.status === 'sold' || c.status === 'for sale'))
+          .map((car, i) => {
+            const {year, make, model, specs, id} = car
+            const sold = car.status === 'sold'
+            const yrMkModel = `${year} ${make} ${model}`
+            const url = `/used-cars-for-sale/${yrMkModel.toLowerCase().split(' ').join('-')}/${id}`
+            const card = (
+              <InventoryCard
+                car={car}
+                color={specs.exterior.color}
+                yrMkModel={yrMkModel}
+                opacity={opacity}
+                handleOnLoad={this.handleOnLoad}
+              />
+            )
+            return (
+              <Col className={`InventoryCard ${sold ? 'InventoryCard__sold' : ''}`} key={i} xs={12} sm={6} md={6} lg={6}>
+                {sold ? card : <Link to={url}>{card}</Link>}
+              </Col>
+            )
+          })}
       </Row>
     )
   }

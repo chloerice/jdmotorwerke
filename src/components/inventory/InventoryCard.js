@@ -3,7 +3,8 @@ import { Image } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 const InventoryCard = props => {
-  const {car, yrMkModel, color, handleOnLoad, opacity} = props
+  const {car, yrMkModel, handleOnLoad, opacity} = props
+  const {color} = car.specs.exterior
   const sold = car.status === 'sold'
 
   return (
@@ -34,6 +35,7 @@ const InventoryCard = props => {
 
 InventoryCard.propTypes = {
   car: PropTypes.object,
+  specs: PropTypes.object,
   handleOnLoad: PropTypes.func,
   opacity: PropTypes.number,
   yrMkModel: PropTypes.string,
