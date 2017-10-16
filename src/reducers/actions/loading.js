@@ -1,9 +1,16 @@
-import { REQUEST_CUSTOMERS, UPDATE_CUSTOMER, CREATE_NEW_CUSTOMER,
-         REQUEST_CARS, LIST_NEW_CAR, UPDATE_CAR, AUTHENTICATING } from '../constants'
+import { REQUEST_CUSTOMERS, UPDATE_CUSTOMER,
+         CREATE_NEW_CUSTOMER, REQUEST_CARS,
+         REQUEST_CAR, LIST_NEW_CAR, UPDATE_CAR,
+         AUTHENTICATING } from '../constants'
 
 export const requestCars = () => ({
   loading: true,
   type: REQUEST_CARS
+})
+
+export const requestCar = () => ({
+  loading: true,
+  type: REQUEST_CAR
 })
 
 export const updateCar = () => ({

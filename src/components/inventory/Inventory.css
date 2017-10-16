@@ -1,9 +1,138 @@
-#Inventory {
-  padding: 75px 15px;
+/* ---- INVENTORY  ---- */
+.Inventory {
+  padding: 25px 45px;
+  text-align: left;
 }
 
 .Inventory__header {
   text-align: center;
-  padding-top: 25px;
+  font-size: 1.75em;
+  font-weight: bolder;
+  padding: 15px 0;
+  margin: 0;
   color: #000000;
+}
+
+/* - INVENTORY CARDS - */
+
+.InventoryCard {
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.InventoryCard:not(.InventoryCard__sold) {
+  transition: all .25s ease-in-out;
+}
+
+.InventoryCard:not(.InventoryCard__sold):hover {
+  transform: scale(.99);
+}
+
+.img-placeholder {
+  position: relative;
+  width: 100%;
+  background: #E4E4E4;
+  transition: box-shadow .2s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.InventoryCard__image {
+  transition: opacity .25s ease-in;
+  height: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5)
+}
+
+.sold {
+  font-size: 5em;
+  font-weight: bolder;
+  color: #BADA55;
+}
+
+.InventoryCard__text {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  color: #FFFFFF;
+  text-shadow: 1px 1px #000000;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.InventoryCard__text-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.InventoryCard__price {
+  font-size: 1.25em;
+  font-weight: 100;
+  padding: 0 10px 5px 0;
+  margin: 0;
+}
+
+.InventoryCard__miles {
+  font-size: .75em;
+  font-style: italic;
+  padding-right: 10px;
+}
+
+.InventoryCard__model {
+  font-size: 1.5em;
+  align-self: flex-end;
+  padding: 0 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .InventoryList {
+    padding: 15px 40px;
+  }
+
+  .InventoryCard {
+    padding: 15px;
+  }
+
+  .img-placeholder {
+    height: calc(calc(50vw - 70px) * .75);
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .Inventory__header {
+    font-size: 4vmax;
+    text-align: left;
+    font-weight: bolder;
+    padding: 25px 35px 10px;
+  }
+
+  .InventoryCard__price {
+    font-size: 2em;
+  }
+
+  .InventoryCard__miles {
+    font-size: 1em;
+  }
+
+  .InventoryCard__model {
+    font-size: 2em;
+  }
 }

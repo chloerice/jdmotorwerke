@@ -14,8 +14,13 @@ class About extends Component {
       opacity: '0',
       height: '0',
       padding: '0',
-      marginBottom: '0'
+      marginBottom: '0',
+      imgOpacity: '0'
     }
+  }
+
+  handleOnLoad = () => {
+    this.setState({imgOpacity: 1})
   }
 
   toggleMainMenu = (event) => {
@@ -39,7 +44,7 @@ class About extends Component {
     const mainMobileMenu = [
       {to: '/', text: 'Home'},
       {to: '/about', text: 'About'},
-      {to: '/inventory', text: 'Inventory'},
+      {to: '/used-cars-for-sale', text: 'Inventory'},
       {to: '/#Contact', text: 'Contact', hash: true}
     ]
     let display = this.state.height === '0' ? 'none' : 'block'
@@ -76,6 +81,7 @@ class About extends Component {
             >
               <Image
                 className='About__owner-image'
+                onLoad={this.handleOnLoad}
                 responsive
                 src={Jon}
                 alt='A photo of JD Motorwerke founder, Jon Rice.'

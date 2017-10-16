@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Row, Col, FormControl, ControlLabel, FormGroup, Button, Alert, Modal, Glyphicon } from 'react-bootstrap'
+import { Row, Col, FormControl, ControlLabel, FormGroup, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { creatingCustomer } from '../../reducers/actions/customers'
-import { dismissAlert } from '../../reducers/actions/alerts'
 import PropTypes from 'prop-types'
 import './Contact.css'
 
@@ -18,8 +17,7 @@ class Contact extends Component {
       model: '',
       year: '',
       color: '',
-      message: '',
-      show: false
+      message: ''
     }
   }
 
@@ -47,15 +45,6 @@ class Contact extends Component {
     this.clearForm()
   }
 
-  handleDismiss = (event) => {
-    if (event) event.preventDefault()
-    this.setState({show: false})
-  }
-
-  showConfirmation = () => {
-    this.setState({show: true})
-  }
-
   clearForm = () => {
     this.setState({
       name: '',
@@ -67,7 +56,7 @@ class Contact extends Component {
       year: '',
       color: '',
       message: ''
-    }, this.showConfirmation)
+    })
   }
 
   isInvalid = () => {
@@ -76,29 +65,8 @@ class Contact extends Component {
   }
 
   render () {
-    const {alert, handleDismiss} = this.props
     return (
       <Row id='Contact' className='gradient'>
-        {
-          alert &&
-          <Modal
-            show={this.state.show}
-            onHide={handleDismiss}
-            autoFocus
-            backdrop
-            restoreFocus
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>
-                <Glyphicon glyph='check' /> <strong>{alert.title}</strong>
-              </Modal.Title>
-            </Modal.Header>
-            <Alert bsStyle={alert.style}>
-              <p>{alert.message}</p>
-              {alert.signed && <p><em>{alert.signed}</em></p>}
-            </Alert>
-          </Modal>
-        }
         <Col xs={12} sm={12} md={12} lg={12}>
           <header className='Contact__header'>
             <h2>Contact Us</h2>
@@ -204,18 +172,11 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-  createCustomer: PropTypes.func,
-  handleDismiss: PropTypes.func,
-  alert: PropTypes.object
+  createCustomer: PropTypes.func
 }
 
-const mapStateToProps = state => ({
-  alert: state.alert
-})
-
 const mapDispatchToProps = dispatch => ({
-  createCustomer: customer => dispatch(creatingCustomer(customer)),
-  handleDismiss: (event) => dispatch(dismissAlert())
+  createCustomer: customer => dispatch(creatingCustomer(customer))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Contact)
+export default connect(null, mapDispatchToProps)(Contact)

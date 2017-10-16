@@ -15,11 +15,12 @@
 
 .About__header {
   font-size: 4vmax;
-  font-weight: 100;
+  font-weight: bold;
   position: relative;
 }
 
 .About__owner-text {
+  font-size: .9em;
   font-weight: 100;
   position: relative;
   padding: 0 0 15px 0;
@@ -34,7 +35,7 @@
   }
 
   .About__header {
-    font-size: 6vmax;
+    font-size: 4.5vmax;
     padding-top: 14vh;
   }
 

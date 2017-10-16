@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router, Route, withRouter, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Grid, Nav, NavItem, Row, Col, Glyphicon } from 'react-bootstrap'
 import './Dashboard.css'
 import Sidebar from '../utilities/Sidebar'
-// import ListNewCar from '../dashboard/ListNewCar'
+import ListNewCar from '../dashboard/ListNewCar'
 import ManageInventory from './ManageInventory'
 import Customers from './Customers'
-// import EditCar from '../dashboard/EditCar'
+import EditCar from '../dashboard/EditCar'
 import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
 import DashNav from './DashNav'
 import { loggingOut } from '../../reducers/actions/auth'
@@ -118,14 +118,14 @@ class Dashboard extends Component {
                   </Col>
                   <Col xs={12} sm={9} md={10} lg={10} className='Dashboard__content'>
                     <ScrollToTopOnMount />
-                    <Route exact path='/dashboard/list-new-car' component={() => (
-                      <h1>LIST NEW CAR</h1>
+                    <Route exact path='/dashboard/list-new-car' component={({history}) => (
+                      <ListNewCar history={history} />
                     )} />
                     <Route exact path='/dashboard/inventory' component={({history}) => (
                       <ManageInventory cars={cars} history={history} />
                     )} />
-                    <Route exact path='/dashboard/inventory/:id' component={() => (
-                      <Link to='/'><h1>EDIT LISTING</h1></Link>
+                    <Route exact path='/dashboard/inventory/:id' component={({history}) => (
+                      <EditCar history={history} />
                     )} />
                     <Route exact path='/dashboard/customers' component={({history}) => (
                       <Customers customers={customers} history={history} />

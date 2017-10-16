@@ -1,0 +1,13 @@
+.CarDetail {
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .CarDetail {
+    padding: 30px 40px;
+  }
+}
+
+td:not(:first-child) {
+  text-align: left;
+}
