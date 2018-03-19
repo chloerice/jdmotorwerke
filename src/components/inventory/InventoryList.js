@@ -14,6 +14,7 @@ export default class InventoryList extends Component {
   }
 
   handleOnLoad = () => {
+    this.props.stopLoading()
     this.setState({opacity: 1})
   }
 
@@ -27,7 +28,8 @@ export default class InventoryList extends Component {
           .filter(c => (c.status === 'sold' || c.status === 'for sale'))
           .map((car, i) => {
             const {year, make, model, specs, id} = car
-            const sold = car.status === 'sold'
+            const isSold = car.status === 'sold'
+            const soldClass = isSold ? 'InventoryCard__sold' : ''
             const yrMkModel = `${year} ${make} ${model}`
             const url = `/used-cars-for-sale/${yrMkModel.toLowerCase().split(' ').join('-')}/${id}`
             const card = (
@@ -39,9 +41,11 @@ export default class InventoryList extends Component {
                 handleOnLoad={this.handleOnLoad}
               />
             )
+            const cardMarkup = isSold ? card : <Link to={url}>{card}</Link>
+
             return (
-              <Col className={`InventoryCard ${sold ? 'InventoryCard__sold' : ''}`} key={i} xs={12} sm={6} md={6} lg={6}>
-                {sold ? card : <Link to={url}>{card}</Link>}
+              <Col className={`InventoryCard ${soldClass}`} key={car.id} xs={12} sm={6} md={6} lg={6}>
+                {cardMarkup}
               </Col>
             )
           })}

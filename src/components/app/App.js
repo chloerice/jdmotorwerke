@@ -3,13 +3,16 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, withRouter, Redirect, Switch } from 'react-router-dom'
 import { Alert, Modal, Glyphicon } from 'react-bootstrap'
 import PropTypes from 'prop-types'
+
 import Home from '../home/Home'
 import Dashboard from '../dashboard/Dashboard'
 import Login from '../login/Login'
 import About from '../about/About'
 import Inventory from '../inventory/Inventory'
 import CarDetail from '../inventory/CarDetail'
+
 import { dismissAlert } from '../../reducers/actions/alerts'
+
 import './App.css'
 
 const App = props => {
@@ -56,7 +59,7 @@ const App = props => {
             />
             {/* PUBLIC ROUTES */}
             <Route exact strict path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
+            <Route exact path='/admin' component={Login} />
             <Route exact path='/about' component={About} />
             <Route exact path='/used-cars-for-sale' component={Inventory} />
             <Route exact path='/used-cars-for-sale/:colorYrMkModel/:id' component={CarDetail} />

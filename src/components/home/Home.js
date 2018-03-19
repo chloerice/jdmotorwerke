@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Nav, Glyphicon } from 'react-bootstrap'
 import { HashLink } from 'react-router-hash-link'
+
 import Services from '../services/Services'
 import Contact from '../contact/Contact'
 import MainNav from '../app/MainNav'
+
+import brandWhite from '../app/JDMotorwerke_white_text.svg'
+
 import './Home.css'
-import brandWhite from '../app/jdmotorwerke-logo-white.png'
 
 class Home extends Component {
   constructor (props) {

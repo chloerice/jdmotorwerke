@@ -8,9 +8,11 @@
 }
 
 .About__owner-image {
+  filter: grayscale(90%);
   position: relative;
   height: auto;
   width: 100%;
+  transition: opacity .2s ease-in;
 }
 
 .About__header {
@@ -31,12 +33,13 @@
     position: fixed;
     bottom: 0;
     width: auto;
+    max-width: 60vw;
     min-width: 40vw;
   }
 
   .About__header {
     font-size: 4.5vmax;
-    padding-top: 14vh;
+    padding-top: 10vh;
   }
 
   .About__owner-text {

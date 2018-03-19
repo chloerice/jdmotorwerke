@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Image } from 'react-bootstrap'
+
 import MainNav from '../app/MainNav'
 import MenuCollapse from '../app/MenuCollapse'
-import './About.css'
-import brandBlack from '../dashboard/jdmotorwerke-logo.png'
+
 import Jon from './JD-Motorwerke-Owner-Jon-Rice.png'
+
+import './About.css'
 
 class About extends Component {
   constructor (props) {
@@ -52,7 +54,7 @@ class About extends Component {
       <div>
         <MainNav
           black
-          brand={brandBlack}
+          brand="black"
           links={mainMobileMenu}
           toggleMainMenu={this.toggleMainMenu}
         />
@@ -63,22 +65,19 @@ class About extends Component {
         />
         <Grid id='About' className='fadeIn animated' fluid>
           <Row>
-            <Col xs={12} sm={6} smPush={6} md={7} mdPush={5} lg={7} lgPush={5}>
+            <Col xs={12} sm={5} smPush={7} md={6} mdPush={6} lg={7} lgPush={5}>
               <h2 className='About__header'>About the Owner</h2>
               <p className='About__owner-text'>
-                Jon D. Rice founded JD Motorwerke in the fall of 2016. A vet of America's auto parts capital--California's Recycle Rd--he's got almost a decade of automotive industry experience servicing, dismantling, and selling European cars. For years he's used his expertise and resources to save family and friends the time, money and stress involved in purchasing from a car lot. Jon believes everyone should have access to an auto insider and is thrilled to extend this service to the broader community of car buyers. When he's not hunting down deals for his clients, he enjoys travelling with the love of his life, Kylee, and restoring rare BMWs.
+                Jon D. Rice founded JD Motorwerke in the fall of 2016. A vet of America's auto parts capital, California's Recycle Road, he's got over a decade of automotive industry experience servicing, dismantling, and selling European cars.
+              </p>
+              <p className='About__owner-text'>
+                For years, he's used his expertise and resources to save family and friends the time, money and stress involved in purchasing from a car lot. Jon believes everyone should have access to an auto insider, and is thrilled to extend this service to the broader community of car buyers.
+              </p>
+              <p className='About__owner-text'>
+                When he's not hunting down deals for his clients, he enjoys travelling with the love of his life, Kylee, and restoring rare BMWs.
               </p>
             </Col>
-            <Col
-              className='About__owner-image-container'
-              xs={12}
-              sm={6}
-              smPull={6}
-              md={5}
-              mdPull={7}
-              lg={5}
-              lgPull={7}
-            >
+            <Col className='About__owner-image-container' xs={12} sm={7} smPull={5} md={6} mdPull={6} lg={5} lgPull={7}>
               <Image
                 className='About__owner-image'
                 onLoad={this.handleOnLoad}

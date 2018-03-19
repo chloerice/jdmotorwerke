@@ -82,7 +82,7 @@ class Contact extends Component {
             <Row>
               <Col xs={12} sm={6} md={6} lg={6}>
                 <FormGroup className='align-left' controlId='name'>
-                  <ControlLabel>NAME</ControlLabel>
+                  <ControlLabel>Name</ControlLabel>
                   <FormControl
                     required
                     onChange={this.handleChange('name')}
@@ -90,7 +90,7 @@ class Contact extends Component {
                   />
                 </FormGroup>
                 <FormGroup className='align-left' controlId='phone'>
-                  <ControlLabel>PHONE</ControlLabel>
+                  <ControlLabel>Phone</ControlLabel>
                   <FormControl
                     required
                     type='tel'
@@ -99,7 +99,7 @@ class Contact extends Component {
                   />
                 </FormGroup>
                 <FormGroup className='align-left' controlId='email'>
-                  <ControlLabel>EMAIL</ControlLabel>
+                  <ControlLabel>Email</ControlLabel>
                   <FormControl
                     required
                     type='email'
@@ -108,7 +108,7 @@ class Contact extends Component {
                   />
                 </FormGroup>
                 <FormGroup className='align-left' controlId='zipcode'>
-                  <ControlLabel>ZIP CODE</ControlLabel>
+                  <ControlLabel>Zip Code</ControlLabel>
                   <FormControl
                     type='tel'
                     onChange={this.handleChange('zipCode')}
@@ -118,7 +118,7 @@ class Contact extends Component {
               </Col>
               <Col xs={12} sm={6} md={6} lg={6}>
                 <FormGroup className='align-left' controlId='make'>
-                  <ControlLabel>MAKE</ControlLabel>
+                  <ControlLabel>Make</ControlLabel>
                   <FormControl
                     required
                     onChange={this.handleChange('make')}
@@ -126,7 +126,7 @@ class Contact extends Component {
                   />
                 </FormGroup>
                 <FormGroup className='align-left' controlId='model'>
-                  <ControlLabel>MODEL</ControlLabel>
+                  <ControlLabel>Model</ControlLabel>
                   <FormControl
                     required
                     onChange={this.handleChange('model')}
@@ -134,7 +134,7 @@ class Contact extends Component {
                   />
                 </FormGroup>
                 <FormGroup className='align-left' controlId='year'>
-                  <ControlLabel>YEAR</ControlLabel>
+                  <ControlLabel>Year</ControlLabel>
                   <FormControl
                     required
                     type='tel'
@@ -143,7 +143,7 @@ class Contact extends Component {
                   />
                 </FormGroup>
                 <FormGroup className='align-left' controlId='color'>
-                  <ControlLabel>COLOR</ControlLabel>
+                  <ControlLabel>Color</ControlLabel>
                   <FormControl
                     onChange={this.handleChange('color')}
                     value={this.state.color}
@@ -152,7 +152,7 @@ class Contact extends Component {
               </Col>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <FormGroup className='align-left' controlId='message'>
-                  <ControlLabel>MESSAGE</ControlLabel>
+                  <ControlLabel>Message</ControlLabel>
                   <FormControl
                     componentClass='textarea'
                     onChange={this.handleChange('message')}

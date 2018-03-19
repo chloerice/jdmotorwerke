@@ -17,3 +17,20 @@
     padding-bottom: 10px;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .Dashboard__form {
+    padding: 0 25px;
+  }
+  .form-fields-container--left {
+    padding-right: 20px;
+  }
+
+  .form-fields-container--right {
+    padding-left: 20px;
+  }
+
+  .Dashboard__form .btn-primary {
+    width: 100%;
+  }
+}

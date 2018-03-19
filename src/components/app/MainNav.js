@@ -4,6 +4,10 @@ import { HashLink } from 'react-router-hash-link'
 import PropTypes from 'prop-types'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Glyphicon, Navbar, NavbarBrand, Nav, NavItem, Image, Col } from 'react-bootstrap'
+
+import brandWhite from '../app/JDMotorwerke_white_text.svg'
+import brandBlack from '../app/JDMotorwerke_black_text.svg'
+
 import './App.css'
 
 class MainNav extends Component {
@@ -18,17 +22,16 @@ class MainNav extends Component {
 
   render () {
     const {links, brand, black, toggleMainMenu} = this.props
+    const brandImg = brand === 'black' ? brandBlack : brandWhite
+
     return (
       <Navbar collapseOnSelect className={black ? 'navbar-black' : ''}>
         <Navbar.Header>
-          <NavbarBrand>
-            <LinkContainer to='/'>
-              <Image
-                src={brand}
-                alt='JD Motorwerke logo' height='60px'
-              />
+          <Navbar.Brand>
+            <LinkContainer to='/' className="Nav--logo">
+              <Image src={brandImg} alt='JD Motorwerke' />
             </LinkContainer>
-          </NavbarBrand>
+          </Navbar.Brand>
           <Col
             onClick={toggleMainMenu}
             className={black ? 'Home-menuToggle black' : 'Home-menuToggle'}

@@ -12,7 +12,7 @@ const CarDetailFields = ({
   formheadingText,
   handleSubmit
 }) => (
-  <Row>
+  <Row className='Dashboard__form'>
     <Col className='form-header' xs={12} sm={12} md={12} lg={12}>
       <h1>{formheadingText}</h1>
     </Col>

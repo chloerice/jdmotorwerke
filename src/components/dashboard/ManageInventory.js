@@ -19,7 +19,7 @@ export default class ManageInventory extends Component {
     const {cars} = this.props
     return (
       <Row className='ManageInventory'>
-        <h1 className='ManageInventory-header'>MANAGE INVENTORY</h1>
+        <h1 className='ManageInventory-header'>Manage Inventory</h1>
         <Table responsive striped hover={false}>
           <thead>
             <tr>

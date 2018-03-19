@@ -1,7 +1,7 @@
 .Customers,
 .ManageInventory {
   min-height: 100vh;
-  padding: 5px 10px;
+  padding: 0 10px;
 }
 
 .Customers-header,
@@ -33,7 +33,7 @@ thead {
 @media only screen and (min-width: 768px) {
   .Customers,
   .ManageInventory {
-    padding: 5px 40px;
+    padding: 0 40px;
   }
 
   .Customers-header,
