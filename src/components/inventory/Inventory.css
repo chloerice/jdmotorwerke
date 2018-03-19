@@ -16,8 +16,10 @@
 /* - INVENTORY CARDS - */
 
 .InventoryCard {
-  padding: 10px;
+  padding: 15px;
   border-radius: 3px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .InventoryCard:not(.InventoryCard__sold) {
@@ -29,18 +31,24 @@
 }
 
 .img-placeholder {
+  display: flex;
+  box-sizing: border-box;
   position: relative;
-  width: 100%;
+  height: calc(calc(100vw - 70px) * .75);
+  width: auto;
   background: #E4E4E4;
   transition: box-shadow .2s ease-in-out;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .InventoryCard__image {
+  flex-grow: 1;
   transition: opacity .25s ease-in;
   height: inherit;
+  width: auto;
   object-fit: cover;
   object-position: center;
+  margin: auto;
 }
 
 .overlay {

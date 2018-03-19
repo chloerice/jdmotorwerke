@@ -189,7 +189,7 @@ a {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   .Nav--logo {
     height: 1rem;
   }
