@@ -3,12 +3,17 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+
 import MainNav from '../app/MainNav'
 import MenuCollapse from '../app/MenuCollapse'
 import InventoryList from './InventoryList'
-import './Inventory.css'
-import brandBlack from '../dashboard/jdmotorwerke-logo.png'
+import LoadingAnimation from '../utilities/LoadingAnimation'
+
 import { requestingCars } from '../../reducers/actions/cars'
+
+import brandBlack from '../dashboard/jdmotorwerke-logo.png'
+
+import './Inventory.css'
 
 class Inventory extends Component {
 
@@ -46,6 +51,11 @@ class Inventory extends Component {
     })
   }
 
+  stopLoading = () => {
+    const {cars} = this.props
+    if (cars.length) setTimeout(() => this.setState({loading: false}), 15000)
+  }
+
   render () {
     const menuCollapseStyle = {
       padding: this.state.padding,
@@ -71,11 +81,13 @@ class Inventory extends Component {
         else return 0
       })
 
+    if (!cars.length) { return <LoadingAnimation /> }
+
     return (
       <div>
         <MainNav
           black
-          brand={brandBlack}
+          brand="black"
           links={mainMobileMenu}
           toggleMainMenu={this.toggleMainMenu}
         />
@@ -92,7 +104,7 @@ class Inventory extends Component {
               </header>
             </Col>
           </Row>
-          <InventoryList cars={cars} />
+          <InventoryList cars={cars} stopLoading={this.stopLoading} />
         </Grid>
       </div>
     )

@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Hex" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 782 136" style="enable-background:new 0 0 782 136;" xml:space="preserve">
-<style type="text/css">
-	.st0{opacity:0.75;fill:#FAFBFC;}
-	.st1{fill:none;}
-	.st2{opacity:0.75;fill:#FCFCFC;enable-background:new    ;}
-	.st3{font-family:'AlfaSlabOne-Regular';}
-	.st4{font-size:71.2503px;}
-	.st5{fill:#1F429B;}
-	.st6{opacity:0.2;fill:#1F429B;enable-background:new    ;}
-	.st7{opacity:0.3;fill:#1F429B;enable-background:new    ;}
-	.st8{opacity:0.4;fill:#1F429B;enable-background:new    ;}
-	.st9{opacity:0.5;fill:#1F429B;enable-background:new    ;}
-	.st10{opacity:0.6;fill:#1F429B;enable-background:new    ;}
-	.st11{opacity:0.7;fill:#1F429B;enable-background:new    ;}
-	.st12{opacity:0.9;fill:#1F429B;enable-background:new    ;}
-</style>
-<circle class="st0" cx="67.9" cy="68" r="66.8"/>
-<rect x="158.6" y="39.8" class="st1" width="622.3" height="69.1"/>
-<text transform="matrix(1 0 0 1 158.607 95.2633)" class="st2 st3 st4">JD Motorwerke</text>
-<path class="st5" d="M66.4,20.6L94,67.3L82.4,89.5l-26.3,1.1L27.9,44.8l0,0c0,0-5.4,7.8-5.4,21.6c0,25.3,20.5,45.8,45.8,45.8
-	c25.3,0,45.8-20.5,45.8-45.8C114.1,41.1,91.7,20.6,66.4,20.6"/>
+	 width="315.113px" height="33.735px" viewBox="1.405 91.45 315.113 33.735" enable-background="new 1.405 91.45 315.113 33.735"
+	 xml:space="preserve">
+<rect x="51.529" y="97.932" fill="none" width="229.185" height="25.449"/>
+<text transform="matrix(1 0 0 1 41.5318 117.3587)" opacity="0.75" fill="#FCFCFC" enable-background="new    " font-family="'DodgerCondensed'" font-size="28">JD MotorWerke</text>
 <g>
-	<polygon class="st6" points="84.8,60 63.2,60.2 55,77.8 75.1,77.3 	"/>
-	<polygon class="st7" points="81.5,54.6 60.8,55.7 52.2,73.1 72.2,72.8 	"/>
-	<polygon class="st8" points="79.1,50.2 58.4,51.1 49.4,68.7 69.7,68.3 	"/>
-	<polygon class="st9" points="75.5,44.6 54.8,45.4 45.8,63.1 66.1,62.6 	"/>
-	<polygon class="st10" points="72,38.9 51.3,39.8 42.2,57.4 62.6,57 	"/>
-	<polygon class="st11" points="68.4,33.2 47.7,34.1 38.7,51.7 59,51.3 	"/>
-	<polygon class="st12" points="64.8,27.6 44.2,28.4 35.1,46 55.5,45.6 	"/>
+	<path opacity="0.75" fill="#FCFCFC" enable-background="new    " d="M17.573,91.45l10.165,17.199l-4.272,8.176l-9.686,0.405
+		L3.394,100.362l0,0c0,0-1.989,2.873-1.989,7.955c0,9.318,7.55,16.868,16.868,16.868s16.868-7.55,16.868-16.868
+		S26.891,91.45,17.573,91.45"/>
+	<g opacity="0.75">
+		<g>
+			<polygon opacity="0.2" fill="#FCFCFC" enable-background="new    " points="24.349,105.96 16.394,106.034 13.374,112.516 
+				20.777,112.332 			"/>
+			<polygon opacity="0.3" fill="#FCFCFC" enable-background="new    " points="23.134,103.972 15.51,104.377 12.343,110.785 
+				19.709,110.674 			"/>
+			<polygon opacity="0.4" fill="#FCFCFC" enable-background="new    " points="22.25,102.351 14.627,102.683 11.312,109.164 
+				18.788,109.017 			"/>
+			<polygon opacity="0.5" fill="#FCFCFC" enable-background="new    " points="20.924,100.289 13.301,100.583 9.986,107.102 
+				17.462,106.918 			"/>
+			<polygon opacity="0.6" fill="#FCFCFC" enable-background="new    " points="19.635,98.189 12.012,98.521 8.66,105.003 
+				16.173,104.855 			"/>
+			<polygon opacity="0.7" fill="#FCFCFC" enable-background="new    " points="18.309,96.09 10.686,96.422 7.371,102.904 
+				14.848,102.756 			"/>
+			<polygon opacity="0.9" fill="#FCFCFC" enable-background="new    " points="16.984,94.028 9.397,94.322 6.046,100.804 
+				13.559,100.657 			"/>
+		</g>
+	</g>
 </g>
 </svg>

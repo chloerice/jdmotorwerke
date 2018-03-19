@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Grid, Row, Col, Carousel, Image, Table } from 'react-bootstrap'
 import PropTypes from 'prop-types'
+
 import MainNav from '../app/MainNav'
 import MenuCollapse from '../app/MenuCollapse'
-import brandBlack from '../dashboard/jdmotorwerke-logo.png'
+
 import { requestingCar, receiveCar } from '../../reducers/actions/cars'
 import Loading from '../utilities/LoadingAnimation'
+
 import './CarDetail.css'
 
 class CarDetail extends Component {
@@ -18,7 +20,8 @@ class CarDetail extends Component {
       opacity: '0',
       height: '0',
       padding: '0',
-      marginBottom: '0'
+      marginBottom: '0',
+      imgOpacity: '0',
     }
   }
 
@@ -48,6 +51,10 @@ class CarDetail extends Component {
     return `${firstLetter}${substring}`
   }
 
+  handleOnLoad = () => {
+    this.setState({ imgOpacity: '1' })
+  }
+
   render () {
     const menuCollapseStyle = {
       padding: this.state.padding,
@@ -66,10 +73,10 @@ class CarDetail extends Component {
     const {car} = this.props
 
     return (
-      <div>
+      <div className="fadeIn animated">
         <MainNav
           black
-          brand={brandBlack}
+          brand="black"
           links={mainMobileMenu}
           toggleMainMenu={this.toggleMainMenu}
         />
@@ -96,16 +103,19 @@ class CarDetail extends Component {
                   {car && car.images.all.map((pic, i) => (
                     <Carousel.Item key={i}>
                       <Image
+                        className="CarDetail--image"
                         responsive
                         src={pic}
-                        alt={`a photo of the ${car.year} ${car.make} ${car.model} for sale by JD Motorwerke`}
+                        onLoad={this.handleOnLoad}
+                        style={{opacity: `${this.state.imgOpacity}`}}
+                        alt={`${car.year} ${car.make} ${car.model} for sale by JD Motorwerke`}
                       />
                     </Carousel.Item>
                   ))}
                 </Carousel>
               </Col>
               <Col xs={12} sm={12} md={5} lg={5}>
-                <Table striped bordered>
+                <Table className="CarDetail--spec-table">
                   <tbody>
                     <tr>
                       <td>Title status</td>
