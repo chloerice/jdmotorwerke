@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import PropTypes from 'prop-types'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Glyphicon, Navbar, NavbarBrand, Nav, NavItem, Image, Col } from 'react-bootstrap'
+import { Glyphicon, Navbar, Nav, NavItem, Image, Col } from 'react-bootstrap'
 
 import brandWhite from '../app/JDMotorwerke_white_text.svg'
 import brandBlack from '../app/JDMotorwerke_black_text.svg'
