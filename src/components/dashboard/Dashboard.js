@@ -8,6 +8,7 @@ import './Dashboard.css'
 import Sidebar from '../utilities/Sidebar'
 import ListNewCar from '../dashboard/ListNewCar'
 import ManageInventory from './ManageInventory'
+import Inquiries from './Inquiries'
 import Customers from './Customers'
 import EditCar from '../dashboard/EditCar'
 import ScrollToTopOnMount from '../utilities/ScrollToTopOnMount'
@@ -32,7 +33,7 @@ class Dashboard extends Component {
     if (event) event.preventDefault()
     this.setState({
       showDashMenu: !this.state.showDashMenu,
-      height: this.state.height === '190px' ? '0' : '190px',
+      height: this.state.height === '235px' ? '0' : '235px',
       padding: this.state.padding === '10px 0' ? '0' : '10px 0',
       opacity: this.state.opacity === 0 ? 1 : 0,
       marginTop: this.state.marginTop === '70px' ? 0 : '70px',
@@ -52,7 +53,8 @@ class Dashboard extends Component {
     const dashMobileMenu = [
       {to: '/dashboard/list-new-car', glyph: 'plus-sign', text: 'List New Car'},
       {to: '/dashboard/inventory', glyph: 'list-alt', text: 'Inventory'},
-      {to: '/dashboard/customers', glyph: 'user', text: 'Customers'}
+      {to: '/dashboard/customers/inquiries', glyph: 'envelope', text: 'Inquiries'},
+      {to: '/dashboard/customers/:id', glyph: 'user', text: 'Customers'}
     ]
 
     const {cars, customers} = this.props
@@ -100,11 +102,14 @@ class Dashboard extends Component {
                           <LinkContainer to='/dashboard/list-new-car' className='Dashboard__nav-item'>
                             <NavItem><Glyphicon glyph='plus-sign' /> List New Car</NavItem>
                           </LinkContainer>
-                          <LinkContainer to='/dashboard/customers' className='Dashboard__nav-item'>
-                            <NavItem><Glyphicon glyph='user' /> Customers</NavItem>
-                          </LinkContainer>
                           <LinkContainer to='/dashboard/inventory' className='Dashboard__nav-item'>
                             <NavItem><Glyphicon glyph='list-alt' /> Inventory</NavItem>
+                          </LinkContainer>
+                          <LinkContainer to='/dashboard/customers/inquiries' className='Dashboard__nav-item'>
+                            <NavItem><Glyphicon glyph='envelope' /> Inquiries</NavItem>
+                          </LinkContainer>
+                          <LinkContainer to='/dashboard/customers' className='Dashboard__nav-item'>
+                            <NavItem><Glyphicon glyph='user' /> Customers</NavItem>
                           </LinkContainer>
                           <NavItem
                             className='Dashboard__nav-item'
@@ -127,8 +132,11 @@ class Dashboard extends Component {
                     <Route exact path='/dashboard/inventory/:id' component={({history}) => (
                       <EditCar history={history} />
                     )} />
+                    <Route exact path='/dashboard/customers/inquiries' component={({history}) => (
+                      <Inquiries customers={customers} history={history} />
+                    )} />
                     <Route exact path='/dashboard/customers' component={({history}) => (
-                      <Customers customers={customers} history={history} />
+                      <Customers history={history} customers={customers} />
                     )} />
                     <Route exact path='/dashboard/customers/:id' component={() => (
                       <h1>UPDATE CUSTOMER</h1>

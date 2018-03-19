@@ -5,7 +5,7 @@ import Services from '../services/Services'
 import Contact from '../contact/Contact'
 import MainNav from '../app/MainNav'
 import './Home.css'
-import brandWhite from '../app/jdmotorwerke-logo-white.png'
+import brandWhite from '../app/JDMotorwerke_white_text.svg'
 
 class Home extends Component {
   constructor (props) {

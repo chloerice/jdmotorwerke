@@ -11,6 +11,10 @@
   padding: 30px 0;
 }
 
+#Contact .subtext:first-child {
+  margin: 0 !important;
+}
+
 .align-left {
   text-align: left
 }
