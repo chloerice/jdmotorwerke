@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Glyphicon, Navbar, Nav, NavItem, Image, Col } from 'react-bootstrap'
 
-import brandWhite from '../app/JDMotorwerke_white_text.svg'
-import brandBlack from '../app/JDMotorwerke_black_text.svg'
+import brandWhite from '../app/JDMotorwerke_white_text.png'
+import brandBlack from '../app/JDMotorwerke_black_text.png'
 
 import './App.css'
 

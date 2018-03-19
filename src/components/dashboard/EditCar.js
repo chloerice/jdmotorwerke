@@ -116,7 +116,6 @@ class EditCar extends Component {
       status &&
       purchasePrice &&
       sellingPrice &&
-      soldPrice &&
       stateOfOrigin &&
       title &&
       mileage &&
@@ -175,6 +174,7 @@ class EditCar extends Component {
   }
 
   render () {
+    console.log(this.state)
     return !this.props.car
       ? <Loading />
       : (

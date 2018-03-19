@@ -46,7 +46,7 @@ const App = props => {
             <Route
               path='/dashboard/:action'
               render={() => {
-                if (!user) return <Redirect to='/login' />
+                if (!user) return <Redirect to='/admin' />
                 return <Dashboard />
               }}
             />

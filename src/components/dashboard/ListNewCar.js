@@ -75,7 +75,6 @@ class CreateCar extends Component {
       status &&
       purchasePrice &&
       sellingPrice &&
-      soldPrice &&
       stateOfOrigin &&
       title &&
       mileage &&

@@ -1,4 +1,4 @@
 @font-face {
-  font-family: DodgerCondensed;
-  src: url(/static/assets/fonts/dodger3cond.ttf) format('truetype');
+  font-family: "DodgerCondensed";
+  src: url(../../fonts/dodger3cond.ttf) format('truetype');
 }
